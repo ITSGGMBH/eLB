@@ -1,4 +1,2 @@
 # eLB
 Elektronische Leistungsbestätigung
-
-Test
