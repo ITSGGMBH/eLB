@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem" />
+  <name value="KK_ELB_ChargeItem" />
+  <status value="draft" />
+  <date value="2022-09-13T07:20:45.044853+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ChargeItem" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ChargeItem" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ChargeItem.id">
+      <path value="ChargeItem.id" />
+      <mustSupport value="false" />
+    </element>
+    <element id="ChargeItem.implicitRules">
+      <path value="ChargeItem.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.language">
+      <path value="ChargeItem.language" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.text">
+      <path value="ChargeItem.text" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.contained">
+      <path value="ChargeItem.contained" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.extension">
+      <path value="ChargeItem.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="ChargeItem.extension:Payor">
+      <path value="ChargeItem.extension" />
+      <sliceName value="Payor" />
+      <short value="Kostenträger" />
+      <definition value="Identifier des Kostenträgers des Versicherten (subject)" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor" />
+      </type>
+      <mustSupport value="true" />
+      <isModifier value="false" />
+    </element>
+    <element id="ChargeItem.identifier">
+      <path value="ChargeItem.identifier" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.identifier.system">
+      <path value="ChargeItem.identifier.system" />
+      <min value="1" />
+      <fixedUri value="urn:ietf:rfc:3986" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.identifier.value">
+      <path value="ChargeItem.identifier.value" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.definitionUri">
+      <path value="ChargeItem.definitionUri" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.definitionCanonical">
+      <path value="ChargeItem.definitionCanonical" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.status">
+      <path value="ChargeItem.status" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.partOf">
+      <path value="ChargeItem.partOf" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.code">
+      <path value="ChargeItem.code" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.code.coding">
+      <path value="ChargeItem.code.coding" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.code.coding.system">
+      <path value="ChargeItem.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.code.coding.code">
+      <path value="ChargeItem.code.coding.code" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.subject">
+      <path value="ChargeItem.subject" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.subject.identifier">
+      <path value="ChargeItem.subject.identifier" />
+      <min value="1" />
+      <type>
+        <code value="Identifier" />
+        <profile value="http://fhir.de/StructureDefinition/identifier-kvid-10" />
+      </type>
+    </element>
+    <element id="ChargeItem.context">
+      <path value="ChargeItem.context" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.occurrence[x]">
+      <path value="ChargeItem.occurrence[x]" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <type>
+        <code value="Period" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.performer">
+      <path value="ChargeItem.performer" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="actor.type" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+      <max value="2" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation">
+      <path value="ChargeItem.performer" />
+      <sliceName value="leistungserbringerOrganisation" />
+      <comment value="In diesem Slice wird die Leistungserbringer-Organisation bzw. der Leistungserbringer anhand des IKs identifiziert. Die Funktion des Leistungserbringer wird anhand des Sammelgruppenschlüssels in der function angegeben." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.function">
+      <path value="ChargeItem.performer.function" />
+      <min value="1" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.function.coding">
+      <path value="ChargeItem.performer.function.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.function.coding.system">
+      <path value="ChargeItem.performer.function.coding.system" />
+      <min value="1" />
+      <fixedUri value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.function.coding.code">
+      <path value="ChargeItem.performer.function.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.actor.type">
+      <path value="ChargeItem.performer.actor.type" />
+      <min value="1" />
+      <fixedUri value="Organization" />
+    </element>
+    <element id="ChargeItem.performer:leistungserbringerOrganisation.actor.identifier">
+      <path value="ChargeItem.performer.actor.identifier" />
+      <min value="1" />
+      <type>
+        <code value="Identifier" />
+        <profile value="http://fhir.de/StructureDefinition/identifier-iknr" />
+      </type>
+    </element>
+    <element id="ChargeItem.performer:angestellteLeistungserbringerin">
+      <path value="ChargeItem.performer" />
+      <sliceName value="angestellteLeistungserbringerin" />
+      <comment value="In diesem Slice muss bei einem angestelltenverhältnisses des Leistungserbringers zusätzlich zur IK der Leistungserbringer-Organisation der Name des Leistungserbringers angegeben werden." />
+      <max value="1" />
+    </element>
+    <element id="ChargeItem.performer:angestellteLeistungserbringerin.actor">
+      <path value="ChargeItem.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="ChargeItem.performer:angestellteLeistungserbringerin.actor.type">
+      <path value="ChargeItem.performer.actor.type" />
+      <min value="1" />
+      <fixedUri value="Practitioner" />
+    </element>
+    <element id="ChargeItem.performer:angestellteLeistungserbringerin.actor.display">
+      <path value="ChargeItem.performer.actor.display" />
+      <min value="1" />
+    </element>
+    <element id="ChargeItem.performingOrganization">
+      <path value="ChargeItem.performingOrganization" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.requestingOrganization">
+      <path value="ChargeItem.requestingOrganization" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.costCenter">
+      <path value="ChargeItem.costCenter" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.quantity">
+      <path value="ChargeItem.quantity" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.bodysite">
+      <path value="ChargeItem.bodysite" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.factorOverride">
+      <path value="ChargeItem.factorOverride" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.priceOverride">
+      <path value="ChargeItem.priceOverride" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.overrideReason">
+      <path value="ChargeItem.overrideReason" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.enterer">
+      <path value="ChargeItem.enterer" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.enteredDate">
+      <path value="ChargeItem.enteredDate" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.service">
+      <path value="ChargeItem.service" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.product[x]">
+      <path value="ChargeItem.product[x]" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.account">
+      <path value="ChargeItem.account" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.note">
+      <path value="ChargeItem.note" />
+      <max value="0" />
+    </element>
+    <element id="ChargeItem.supportingInformation">
+      <path value="ChargeItem.supportingInformation" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

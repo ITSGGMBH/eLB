@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ParticipationStatusResponseParameters"/>
+	</meta>
+	<parameter>
+		<name value="isParticipating"/>
+		<valueBoolean value="true"/>
+	</parameter>
+</Parameters>

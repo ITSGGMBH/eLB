@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+    <meta>
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_PollingRequest"/>
+    </meta>
+    <parameter>
+        <name value="performingOrganization"/>
+        <valueIdentifier>
+            <system value="http://fhir.de/sid/arge-ik/iknr"/>
+            <value value="123456780"/>
+        </valueIdentifier>
+    </parameter>
+</Parameters>

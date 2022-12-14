@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters" />
+  <name value="KK_ELB_ConfirmationRequestParameters" />
+  <status value="draft" />
+  <date value="2022-09-15T10:13:50.2487647+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Parameters" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Parameters">
+      <path value="Parameters" />
+      <constraint>
+        <key value="Parameters-endpoint-request-with-callback" />
+        <severity value="error" />
+        <human value="Im Falle einer 'REQUEST_WITH_CALLBACK'-Anfrage muss der 'callbackUrl'-Parameter vorhanden sein" />
+        <expression value="parameter.where(name = 'requestType' and (value as Coding).system = 'https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType' and (value as Coding).code = 'REQUEST_WITH_CALLBACK').exists() implies parameter.where(name = 'callbackUrl' and (value as url).exists()).exists()" />
+      </constraint>
+    </element>
+    <element id="Parameters.id">
+      <path value="Parameters.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.meta">
+      <path value="Parameters.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.profile">
+      <path value="Parameters.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.implicitRules">
+      <path value="Parameters.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.language">
+      <path value="Parameters.language" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="name" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="4" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType">
+      <path value="Parameters.parameter" />
+      <sliceName value="requestType" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="requestType" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedUri value="https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].version">
+      <path value="Parameters.parameter.value[x].version" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].code">
+      <path value="Parameters.parameter.value[x].code" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].display">
+      <path value="Parameters.parameter.value[x].display" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.value[x].userSelected">
+      <path value="Parameters.parameter.value[x].userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:requestType.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl">
+      <path value="Parameters.parameter" />
+      <sliceName value="callbackUrl" />
+      <max value="1" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="callbackUrl" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="url" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:callbackUrl.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier">
+      <path value="Parameters.parameter" />
+      <sliceName value="softwareIdentifier" />
+      <comment value="Freier Identifier für die einliefernde Software" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="softwareIdentifier" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint">
+      <path value="Parameters.parameter" />
+      <sliceName value="emailContactPoint" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="emailContactPoint" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedCode value="email" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].value">
+      <path value="Parameters.parameter.value[x].value" />
+      <min value="1" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].use">
+      <path value="Parameters.parameter.value[x].use" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].rank">
+      <path value="Parameters.parameter.value[x].rank" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].period">
+      <path value="Parameters.parameter.value[x].period" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:chargeItem">
+      <path value="Parameters.parameter" />
+      <sliceName value="chargeItem" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:chargeItem.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:chargeItem.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="chargeItem" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:chargeItem.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:chargeItem.resource">
+      <path value="Parameters.parameter.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:chargeItem.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+  </differential>
+</StructureDefinition>

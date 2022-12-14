@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationOfResponse"/>
+	</meta>
+	<parameter>
+		<name value="confirmationBundleUuid"/>
+		<valueUuid value="urn:uuid:4444d555-666e-77a8-999c-222222b2d33c"/>
+	</parameter>
+</Parameters>

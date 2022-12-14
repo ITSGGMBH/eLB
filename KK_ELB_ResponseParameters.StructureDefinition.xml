@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseParameters" />
+  <name value="KK_ELB_ResponseParameters" />
+  <status value="draft" />
+  <date value="2022-09-14T09:11:12.0601769+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Parameters" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Parameters.id">
+      <path value="Parameters.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.meta">
+      <path value="Parameters.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.profile">
+      <path value="Parameters.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.implicitRules">
+      <path value="Parameters.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.language">
+      <path value="Parameters.language" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="name" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="2" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier">
+      <path value="Parameters.parameter" />
+      <sliceName value="softwareIdentifier" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="softwareIdentifier" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:softwareIdentifier.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint">
+      <path value="Parameters.parameter" />
+      <sliceName value="emailContactPoint" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="emailContactPoint" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedCode value="email" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].value">
+      <path value="Parameters.parameter.value[x].value" />
+      <min value="1" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.part">
+      <path value="Parameters.parameter.part" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:responseBundle">
+      <path value="Parameters.parameter" />
+      <sliceName value="responseBundle" />
+    </element>
+    <element id="Parameters.parameter:responseBundle.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:responseBundle.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="responseBundle" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:responseBundle.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:responseBundle.resource">
+      <path value="Parameters.parameter.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:responseBundle.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+  </differential>
+</StructureDefinition>

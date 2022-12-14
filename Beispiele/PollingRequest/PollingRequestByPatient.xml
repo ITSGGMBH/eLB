@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+    <meta>
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_PollingRequest"/>
+    </meta>
+    <parameter>
+        <name value="patient"/>
+        <valueIdentifier>
+            <system value="http://fhir.de/sid/gkv/kvid-10"/>
+            <value value="K123456789"/>
+        </valueIdentifier>
+    </parameter>
+</Parameters>

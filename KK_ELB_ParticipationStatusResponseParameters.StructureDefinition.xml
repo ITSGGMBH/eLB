@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ParticipationStatusResponseParameters" />
+  <name value="KK_ELB_ParticipationStatusResponseParameters" />
+  <status value="draft" />
+  <date value="2022-08-04T07:40:56.3077409+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Parameters" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Parameters.id">
+      <path value="Parameters.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.meta">
+      <path value="Parameters.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.profile">
+      <path value="Parameters.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.security">
+      <path value="Parameters.meta.security" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.meta.tag">
+      <path value="Parameters.meta.tag" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.implicitRules">
+      <path value="Parameters.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.language">
+      <path value="Parameters.language" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="isParticipating" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+  </differential>
+</StructureDefinition>

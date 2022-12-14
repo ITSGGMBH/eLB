@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ParticipationStatusRequestParameters" />
+  <name value="KK_ELB_ParticipationStatusRequestParameters" />
+  <status value="draft" />
+  <date value="2022-08-09T09:14:48.8724397+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Parameters" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Parameters.id">
+      <path value="Parameters.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.meta">
+      <path value="Parameters.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.profile">
+      <path value="Parameters.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.implicitRules">
+      <path value="Parameters.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.language">
+      <path value="Parameters.language" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="name" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="2" />
+      <max value="2" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient">
+      <path value="Parameters.parameter" />
+      <sliceName value="patient" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="patient" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].use">
+      <path value="Parameters.parameter.value[x].use" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].type">
+      <path value="Parameters.parameter.value[x].type" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.de/sid/gkv/kvid-10" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].value">
+      <path value="Parameters.parameter.value[x].value" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].period">
+      <path value="Parameters.parameter.value[x].period" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.value[x].assigner">
+      <path value="Parameters.parameter.value[x].assigner" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:patient.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+    <element id="Parameters.parameter:payor">
+      <path value="Parameters.parameter" />
+      <sliceName value="payor" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:payor.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="payor" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].use">
+      <path value="Parameters.parameter.value[x].use" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].type">
+      <path value="Parameters.parameter.value[x].type" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.de/sid/arge-ik/iknr" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].value">
+      <path value="Parameters.parameter.value[x].value" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].period">
+      <path value="Parameters.parameter.value[x].period" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.value[x].assigner">
+      <path value="Parameters.parameter.value[x].assigner" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:payor.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
+    </element>
+  </differential>
+</StructureDefinition>

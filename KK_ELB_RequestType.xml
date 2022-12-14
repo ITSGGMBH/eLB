@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_RequestType" />
+  <status value="active" />
+  <date value="2022-08-04T06:37:16.5153548+00:00" />
+  <description value="Requesttypes for eLB" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="REQUEST_WITH_CALLBACK" />
+    <display value="Anfrage mit Verweis auf CallbackURL in source-&gt;endpoint" />
+  </concept>
+  <concept>
+    <code value="REQUEST_WITH_POLLING" />
+    <display value="Anfrage mit Verweis auf Abruf mittels Polling-Schnittstelle" />
+  </concept>
+</CodeSystem>

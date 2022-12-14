@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_SGS" />
+  <status value="active" />
+  <date value="2022-07-25T08:19:48.223097+00:00" />
+  <description value="Schlüssel Kennzeichen Leistungserbringer-Sammelgruppenschlüsse" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="A" />
+    <display value="Leistungserbringer von Hilfsmitteln" />
+  </concept>
+  <concept>
+    <code value="B" />
+    <display value="Leistungserbringer von Heilmitteln" />
+  </concept>
+  <concept>
+    <code value="F" />
+    <display value="Hebammen" />
+  </concept>
+</CodeSystem>
