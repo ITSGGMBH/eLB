@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition" />
   <name value="KK_ELB_ResponseComposition" />
   <status value="draft" />
-  <date value="2022-08-09T06:57:39.7139737+00:00" />
+  <date value="2023-02-01T09:34:05.8644693+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -192,7 +192,6 @@
     <element id="Composition.section.section">
       <path value="Composition.section.section" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Composition#Composition.section" />
     </element>
   </differential>
 </StructureDefinition>

@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ParticipationStatusRequestParameters" />
   <name value="KK_ELB_ParticipationStatusRequestParameters" />
   <status value="draft" />
-  <date value="2022-08-09T09:14:48.8724397+00:00" />
+  <date value="2023-02-01T09:34:05.8644693+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -41,7 +41,7 @@
           <type value="value" />
           <path value="name" />
         </discriminator>
-        <rules value="open" />
+        <rules value="closed" />
       </slicing>
       <min value="2" />
       <max value="2" />
@@ -109,7 +109,6 @@
     <element id="Parameters.parameter:patient.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
     <element id="Parameters.parameter:payor">
       <path value="Parameters.parameter" />
@@ -173,7 +172,6 @@
     <element id="Parameters.parameter:payor.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
   </differential>
 </StructureDefinition>

@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters" />
   <name value="KK_ELB_ConfirmationRequestParameters" />
   <status value="draft" />
-  <date value="2022-09-15T10:13:50.2487647+00:00" />
+  <date value="2023-01-18T09:05:29.8139924+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -113,7 +113,6 @@
     <element id="Parameters.parameter:requestType.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
     <element id="Parameters.parameter:callbackUrl">
       <path value="Parameters.parameter" />
@@ -144,7 +143,6 @@
     <element id="Parameters.parameter:callbackUrl.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
     <element id="Parameters.parameter:softwareIdentifier">
       <path value="Parameters.parameter" />
@@ -182,7 +180,6 @@
     <element id="Parameters.parameter:softwareIdentifier.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
     <element id="Parameters.parameter:emailContactPoint">
       <path value="Parameters.parameter" />
@@ -240,7 +237,6 @@
     <element id="Parameters.parameter:emailContactPoint.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
     <element id="Parameters.parameter:chargeItem">
       <path value="Parameters.parameter" />
@@ -273,7 +269,6 @@
     <element id="Parameters.parameter:chargeItem.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/Parameters#Parameters.parameter" />
     </element>
   </differential>
 </StructureDefinition>
