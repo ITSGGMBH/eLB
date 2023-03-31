@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_LER_Zusatzinfos" />
+  <name value="KK_ELB_CS_HLM_LER_Zusatzinfos" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-01-30T10:06:34.3994876+00:00" />
+  <description value="Abbildung der LER Zusatzinfos Heilmittel" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="GT" />
+    <display value="Änderung in Gruppentherapie" />
+  </concept>
+  <concept>
+    <code value="ET" />
+    <display value="Änderung in Einzeltherapie" />
+  </concept>
+  <concept>
+    <code value="Freq" />
+    <display value="Abweichung von der Frequenz" />
+  </concept>
+</CodeSystem>

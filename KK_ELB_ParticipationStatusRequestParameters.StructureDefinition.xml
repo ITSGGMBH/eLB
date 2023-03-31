@@ -11,10 +11,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
   <derivation value="constraint" />
   <differential>
-    <element id="Parameters.id">
-      <path value="Parameters.id" />
-      <max value="0" />
-    </element>
     <element id="Parameters.meta">
       <path value="Parameters.meta" />
       <min value="1" />

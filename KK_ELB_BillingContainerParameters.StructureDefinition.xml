@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_BillingContainerParameters" />
+  <name value="KK_ELB_BillingContainerParameters" />
+  <status value="draft" />
+  <date value="2023-02-09T09:59:55.8540004+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Parameters" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Parameters">
+      <path value="Parameters" />
+      <constraint>
+        <key value="Bundle-complete" />
+        <severity value="error" />
+        <human value="Alle Bundle entries müssen im Bundle auflösbar sein" />
+        <expression value="%context.parameter.where(resource is Bundle).resource.entry.descendants().reference.distinct().all($this in %context.parameter.where(resource is Bundle).resource.entry.fullUrl.select($this.toString()))" />
+      </constraint>
+    </element>
+    <element id="Parameters.meta">
+      <path value="Parameters.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.meta.profile">
+      <path value="Parameters.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.implicitRules">
+      <path value="Parameters.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.language">
+      <path value="Parameters.language" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="name" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="5" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint">
+      <path value="Parameters.parameter" />
+      <sliceName value="emailContactPoint" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="emailContactPoint" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].system">
+      <path value="Parameters.parameter.value[x].system" />
+      <min value="1" />
+      <fixedCode value="email" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].value">
+      <path value="Parameters.parameter.value[x].value" />
+      <min value="1" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].use">
+      <path value="Parameters.parameter.value[x].use" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].rank">
+      <path value="Parameters.parameter.value[x].rank" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.value[x].period">
+      <path value="Parameters.parameter.value[x].period" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:emailContactPoint.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber">
+      <path value="Parameters.parameter" />
+      <sliceName value="referenceNumber" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="referenceNumber" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.value[x].id">
+      <path value="Parameters.parameter.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:referenceNumber.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted">
+      <path value="Parameters.parameter" />
+      <sliceName value="termsOfUseAccepted" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="termsOfUseAccepted" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:termsOfUseAccepted.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:esolFile">
+      <path value="Parameters.parameter" />
+      <sliceName value="esolFile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:esolFile.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:esolFile.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="esolFile" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:esolFile.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="base64Binary" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:esolFile.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:esolFile.part">
+      <path value="Parameters.parameter.part" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice">
+      <path value="Parameters.parameter" />
+      <sliceName value="invoice" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.id">
+      <path value="Parameters.parameter.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.name">
+      <path value="Parameters.parameter.name" />
+      <fixedString value="invoice" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.value[x]">
+      <path value="Parameters.parameter.value[x]" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.resource">
+      <path value="Parameters.parameter.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part">
+      <path value="Parameters.parameter.part" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="name" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <definition value="Ein container pro Abrechnungsfall&#xD;&#xA;- Verordnung bei Heilmittel&#xD;&#xA;- Abrechnungsfall = Rechnung bei Hebammen, daher nur 1 Container" />
+      <min value="2" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference">
+      <path value="Parameters.parameter.part" />
+      <sliceName value="invoiceReference" />
+      <definition value="Belegnummer, übereinstimmend mit der in der DTA Datei angegebenen Belegnummer" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference.id">
+      <path value="Parameters.parameter.part.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference.name">
+      <path value="Parameters.parameter.part.name" />
+      <fixedString value="invoiceReference" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference.value[x]">
+      <path value="Parameters.parameter.part.value[x]" />
+      <short value="Belegnummer" />
+      <definition value="Belegnummer, übereinstimmend mit der in der DTA Datei angegebenen Belegnummer" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference.resource">
+      <path value="Parameters.parameter.part.resource" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:invoiceReference.part">
+      <path value="Parameters.parameter.part.part" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container">
+      <path value="Parameters.parameter.part" />
+      <sliceName value="Container" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container.id">
+      <path value="Parameters.parameter.part.id" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container.name">
+      <path value="Parameters.parameter.part.name" />
+      <fixedString value="container" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container.value[x]">
+      <path value="Parameters.parameter.part.value[x]" />
+      <max value="0" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container.resource">
+      <path value="Parameters.parameter.part.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_InvoiceContainerBundle" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Parameters.parameter:invoice.part:Container.part">
+      <path value="Parameters.parameter.part.part" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

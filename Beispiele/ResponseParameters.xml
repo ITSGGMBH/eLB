@@ -28,7 +28,7 @@
                 <type value="document"/>
                 <timestamp value="2022-06-20T08:30:00Z"/>
                 <entry>
-                    <fullUrl value="Composition/Contents"/>
+                    <fullUrl value="urn:uuid:a8fe9ff0-57a4-49b9-b15d-762cab488531"/>
                     <resource>
                         <Composition>
                             <meta>
@@ -52,14 +52,14 @@
                             <section>
                                 <entry>
                                     <!--  Referenz auf ChargeItem   -->
-                                    <reference value="ChargeItem/11122e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+                                    <reference value="urn:uuid:ef0cfed1-d609-42f6-b2bc-b254534db780"/>
                                 </entry>
                             </section>
                         </Composition>
                     </resource>
                 </entry>
                 <entry>
-                    <fullUrl value="ChargeItem/11122e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+                    <fullUrl value="urn:uuid:ef0cfed1-d609-42f6-b2bc-b254534db780"/>
                     <resource>
                         <ChargeItem xmlns="http://hl7.org/fhir">
                             <meta>
@@ -138,12 +138,12 @@
                 </meta>
                 <identifier>
                     <system value="urn:ietf:rfc:3986"/>
-                    <value value="urn:uuid:4444d555-666e-77a8-999c-111111b2d33c"/>
+                    <value value="urn:uuid:385a9ea0-33f1-49c7-be05-976cab6ca066"/>
                 </identifier>
                 <type value="document"/>
                 <timestamp value="2022-06-20T08:30:00Z"/>
                 <entry>
-                    <fullUrl value="Composition/Contents"/>
+                    <fullUrl value="urn:uuid:d057c5c8-8a87-44dc-ac1d-636c290d8d63"/>
                     <resource>
                         <Composition>
                             <meta>
@@ -167,14 +167,14 @@
                             <section>
                                 <entry>
                                     <!--  Referenz auf ChargeItem   -->
-                                    <reference value="ChargeItem/11122e3e-cb4a-55b6-77f8-dc9dbdb111c4"/>
+                                    <reference value="urn:uuid:d83534b6-17df-4e96-9a5d-e9faa9535e0a"/>
                                 </entry>
                             </section>
                         </Composition>
                     </resource>
                 </entry>
                 <entry>
-                    <fullUrl value="ChargeItem/11122e3e-cb4a-55b6-77f8-dc9dbdb111c4"/>
+                    <fullUrl value="urn:uuid:d83534b6-17df-4e96-9a5d-e9faa9535e0a"/>
                     <resource>
                         <ChargeItem xmlns="http://hl7.org/fhir">
                             <meta>

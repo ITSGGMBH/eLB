@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+    <meta>
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_BillingContainerParameters"/>
+    </meta>
+    <parameter>
+        <name value="emailContactPoint"/>
+        <valueContactPoint>
+             <system value="email"/>
+            <value value="endpointmanager@example.org"/>
+        </valueContactPoint>
+    </parameter>
+    <parameter>
+        <name value="referenceNumber"/>
+        <valueString value="923"/>
+    </parameter>
+    <parameter>
+        <name value="termsOfUseAccepted"/>
+        <valueBoolean value="true"/>
+    </parameter>
+    <parameter>
+        <name value="esolFile"/>
+        <valueBase64Binary value="bG9yZW0gaXBzdW0="/>
+    </parameter>
+    <parameter>
+        <name value="invoice"/>
+        <part>
+            <name value="invoiceReference"/>
+            <valueString value="20230001"/>
+        </part>
+        <part>
+            <name value="container"/>
+            <resource>
+                <Bundle xmlns="http://hl7.org/fhir">
+                    <meta>
+                        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_InvoiceContainerBundle"/>
+                    </meta>
+					<identifier>
+                        <system value="https://e-lb.de/fhir/sid/KK_ELB_Belegnummer"/>
+                        <value value="11"/>
+                    </identifier>
+                    <type value="collection"/>
+                    <entry>
+                        <fullUrl value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc7dbdb111c2"/>
+                        <resource>
+                            <Bundle xmlns="http://hl7.org/fhir">
+                                <meta>
+                                    <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle"/>
+                                </meta>
+                                <identifier>
+                                    <system value="urn:ietf:rfc:3986"/>
+                                    <value value="urn:uuid:4444d555-666e-77a8-999c-222222b2d33c"/>
+                                </identifier>
+                                <type value="document"/>
+                                <timestamp value="2022-06-20T08:30:00Z"/>
+                                <entry>
+                                    <fullUrl value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc7dbdb11199"/>
+                                    <resource>
+                                        <Composition>
+                                            <meta>
+                                                <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition"/>
+                                            </meta>
+                                            <status value="final"/>
+                                            <type>
+                                                <coding>
+                                                    <system value="http://dvmd.de/fhir/CodeSystem/kdl"/>
+                                                    <code value="AM190107"/>
+                                                </coding>
+                                            </type>
+                                            <date value="2022-06-19T08:00:00Z"/>
+                                            <author>
+                                                <identifier>
+                                                    <system value="http://fhir.de/sid/arge-ik/iknr"/>
+                                                    <value value="123456780"/>
+                                                </identifier>
+                                            </author>
+                                            <title value="Elektronische Leistungsbestätigung"/>
+                                            <section>
+                                                <entry>
+                                                    <!--  Referenz auf ChargeItem   -->
+                                                    <reference value="urn:uuid:55522e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+                                                </entry>
+                                            </section>
+                                        </Composition>
+                                    </resource>
+                                </entry>
+                                <entry>
+                                    <fullUrl value="urn:uuid:55522e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+                                    <resource>
+                                        <ChargeItem xmlns="http://hl7.org/fhir">
+                                            <meta>
+                                                <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+                                            </meta>
+                                            <extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
+                                                <valueIdentifier>
+                                                    <system value="http://fhir.de/sid/arge-ik/iknr"/>
+                                                    <value value="101575519"/>
+                                                </valueIdentifier>
+                                            </extension>
+                                            <identifier>
+                                                <system value="urn:ietf:rfc:3986"/>
+                                                <value value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+                                            </identifier>
+                                            <status value="billable"/>
+                                            <code>
+                                                <coding>
+                                                    <system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
+                                                    <code value="0230"/>
+                                                </coding>
+                                            </code>
+                                            <subject>
+                                                <identifier>
+                                                    <system value="http://fhir.de/sid/gkv/kvid-10"/>
+                                                    <value value="K121212345"/>
+                                                </identifier>
+                                            </subject>
+                                            <occurrencePeriod>
+                                                <start value="2022-06-12T16:50:00+00:00"/>
+                                                <end value="2022-06-12T17:50:00+00:00"/>
+                                            </occurrencePeriod>
+                                            <performer>
+                                                <function>
+                                                    <coding>
+                                                        <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
+                                                        <code value="F"/>
+                                                    </coding>
+                                                </function>
+                                                <actor>
+                                                    <type value="Organization"/>
+                                                    <identifier>
+                                                        <system value="http://fhir.de/sid/arge-ik/iknr"/>
+                                                        <value value="123456789"/>
+                                                    </identifier>
+                                                    <display value="Sarah Schneider"/>
+                                                </actor>
+                                            </performer>
+                                        </ChargeItem>
+                                    </resource>
+                                </entry>
+                                <signature>
+                                    <type>
+                                        <system value="urn:iso-astm:E1762-95:2013"/>
+                                        <code value="1.2.840.10065.1.12.1.5"/>
+                                    </type>
+                                    <when value="2022-07-07T10:42:53.333208+02:00"/>
+                                    <who>
+                                        <identifier>
+                                            <system value="http://fhir.de/sid/arge-ik/iknr"/>
+                                            <value value="123456780"/>
+                                        </identifier>
+                                    </who>
+                                    <sigFormat value="application/signature+xml"/>
+                                    <data value="TG9yZW0gaXBzdW0gZG9sciBzaXI="/>
+                                </signature>
+                            </Bundle>
+                        </resource>
+                    </entry>
+					<entry>
+                        <fullUrl value="urn:uuid:33322e3e-cb4a-55b6-77f8-dc7dbdb141c2"/>
+                        <resource>
+                            <ServiceRequest xmlns="http://hl7.org/fhir">
+                                <meta>
+                                    <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ServiceRequest"/>
+                                </meta>
+                                <status value="unknown"/>
+                                <intent value="order"/>
+								<quantityQuantity>
+									<value value="12" />
+									<unit value="{Besuche}" />
+									<system value="http://unitsofmeasure.org" />
+									<code value="1" />
+								 </quantityQuantity>
+                                <subject>
+                                    <identifier>
+                                        <system value="http://fhir.de/sid/gkv/kvid-10"/>
+                                        <value value="K121212345"/>
+                                    </identifier>
+                                </subject>
+                                <authoredOn value="2022-12-09"/>
+                                <requester>
+                                    <identifier>
+                                        <system value="https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR"/>
+                                        <value value="222256789"/>
+                                    </identifier>
+                                </requester>
+                                <reasonReference>
+                                    <reference value="urn:uuid:44422e3e-cb4a-55b6-77f8-dc7dbdb141c2"/>
+                                </reasonReference>
+                            </ServiceRequest>
+                        </resource>
+                    </entry>
+                    <entry>
+                        <fullUrl value="urn:uuid:44422e3e-cb4a-55b6-77f8-dc7dbdb141c2"/>
+                        <resource>
+                            <Condition>
+                                <meta>
+                                    <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Condition"/>
+                                </meta>
+                                <clinicalStatus>
+                                    <coding>
+                                        <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+                                        <code value="active"/>
+                                    </coding>
+                                </clinicalStatus>
+                                <verificationStatus>
+                                    <coding>
+                                        <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+                                        <code value="confirmed"/>
+                                    </coding>
+                                </verificationStatus>
+                                <code>
+                                    <coding>
+                                        <extension url="http://fhir.de/StructureDefinition/icd-10-gm-mehrfachcodierungs-kennzeichen">
+                                            <valueCoding>
+                                                <system value="http://fhir.de/CodeSystem/icd-10-gm-mehrfachcodierungs-kennzeichen"/>
+                                                <code value="*"/>
+                                                <display value="*"/>
+                                            </valueCoding>
+                                        </extension>
+                                        <extension url="http://fhir.de/StructureDefinition/icd-10-gm-diagnosesicherheit">
+                                            <valueCoding>
+                                                <system value="https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_ICD_DIAGNOSESICHERHEIT"/>
+                                                <code value="G"/>
+                                            </valueCoding>
+                                        </extension>
+                                        <extension url="http://fhir.de/StructureDefinition/seitenlokalisation">
+                                            <valueCoding>
+                                                <system value="https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_ICD_SEITENLOKALISATION"/>
+                                                <code value="R"/>
+                                            </valueCoding>
+                                        </extension>
+                                        <system value="http://fhir.de/CodeSystem/bfarm/icd-10-gm"/>
+                                        <version value="2023"/>
+                                        <code value="Z39.1"/>
+                                    </coding>
+                                    <text value="Wöchnerin benötigt 12 weitere Besuche" />
+                                </code>
+                                <subject>
+                                    <identifier>
+                                        <system value="http://fhir.de/sid/gkv/kvid-10"/>
+                                        <value value="K121212345"/>
+                                    </identifier>
+                                </subject>
+                            </Condition>
+                        </resource>
+                    </entry>
+                </Bundle>
+            </resource>
+        </part>
+    </parameter>
+</Parameters>

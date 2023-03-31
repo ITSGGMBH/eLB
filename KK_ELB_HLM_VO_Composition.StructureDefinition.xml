@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition" />
-  <name value="KK_ELB_ResponseComposition" />
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_Composition" />
+  <name value="KK_ELB_HLM_VO_Composition" />
   <status value="draft" />
-  <date value="2023-02-01T09:34:05.8644693+00:00" />
+  <date value="2023-02-14T08:51:33.7550423+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -27,6 +27,29 @@
       <path value="Composition.contained" />
       <max value="0" />
     </element>
+    <element id="Composition.extension">
+      <path value="Composition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Composition.extension:zusatzinfos">
+      <path value="Composition.extension" />
+      <sliceName value="zusatzinfos" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Zusatzinfos" />
+      </type>
+      <mustSupport value="true" />
+      <isModifier value="false" />
+    </element>
     <element id="Composition.identifier">
       <path value="Composition.identifier" />
       <max value="0" />
@@ -44,16 +67,14 @@
       <path value="Composition.type.coding" />
       <min value="1" />
       <max value="1" />
-    </element>
-    <element id="Composition.type.coding.system">
-      <path value="Composition.type.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://dvmd.de/fhir/CodeSystem/kdl" />
+      <mustSupport value="true" />
     </element>
     <element id="Composition.type.coding.code">
       <path value="Composition.type.coding.code" />
+      <short value="eHLM elektronische Heilmittelverordnung" />
       <min value="1" />
-      <fixedCode value="AM190107" />
+      <fixedCode value="e13A" />
+      <mustSupport value="true" />
     </element>
     <element id="Composition.category">
       <path value="Composition.category" />
@@ -73,37 +94,26 @@
     </element>
     <element id="Composition.author">
       <path value="Composition.author" />
-      <max value="1" />
       <mustSupport value="true" />
-    </element>
-    <element id="Composition.author.id">
-      <path value="Composition.author.id" />
-      <max value="0" />
-    </element>
-    <element id="Composition.author.reference">
-      <path value="Composition.author.reference" />
-      <max value="0" />
-    </element>
-    <element id="Composition.author.type">
-      <path value="Composition.author.type" />
-      <max value="0" />
     </element>
     <element id="Composition.author.identifier">
       <path value="Composition.author.identifier" />
       <min value="1" />
-      <type>
-        <code value="Identifier" />
-        <profile value="http://fhir.de/StructureDefinition/identifier-iknr" />
-      </type>
       <mustSupport value="true" />
     </element>
-    <element id="Composition.author.display">
-      <path value="Composition.author.display" />
-      <max value="0" />
+    <element id="Composition.author.identifier.system">
+      <path value="Composition.author.identifier.system" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Composition.author.identifier.value">
+      <path value="Composition.author.identifier.value" />
+      <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />
-      <fixedString value="Elektronische Leistungsbestätigung" />
+      <fixedString value="Elektronische Verordnung Heilmittel" />
       <mustSupport value="true" />
     </element>
     <element id="Composition.confidentiality">
@@ -128,66 +138,41 @@
     </element>
     <element id="Composition.section">
       <path value="Composition.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
       <min value="1" />
-      <max value="1" />
       <mustSupport value="true" />
     </element>
-    <element id="Composition.section.id">
-      <path value="Composition.section.id" />
-      <max value="0" />
+    <element id="Composition.section:heilmittelverordnung">
+      <path value="Composition.section" />
+      <sliceName value="heilmittelverordnung" />
+      <min value="1" />
+      <mustSupport value="true" />
     </element>
-    <element id="Composition.section.title">
+    <element id="Composition.section:heilmittelverordnung.title">
       <path value="Composition.section.title" />
-      <max value="0" />
-      <mustSupport value="false" />
+      <min value="1" />
+      <fixedString value="Elektronische Verordnung Heilmittel" />
+      <mustSupport value="true" />
     </element>
-    <element id="Composition.section.code">
-      <path value="Composition.section.code" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.author">
-      <path value="Composition.section.author" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.focus">
-      <path value="Composition.section.focus" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.text">
-      <path value="Composition.section.text" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.mode">
-      <path value="Composition.section.mode" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.orderedBy">
-      <path value="Composition.section.orderedBy" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.entry">
+    <element id="Composition.section:heilmittelverordnung.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
-      <max value="1" />
       <type>
         <code value="Reference" />
-        <targetProfile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem" />
-        <aggregation value="bundled" />
+        <targetProfile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_ServiceRequest" />
       </type>
       <mustSupport value="true" />
     </element>
-    <element id="Composition.section.entry.reference">
+    <element id="Composition.section:heilmittelverordnung.entry.reference">
       <path value="Composition.section.entry.reference" />
       <min value="1" />
       <mustSupport value="true" />
-    </element>
-    <element id="Composition.section.emptyReason">
-      <path value="Composition.section.emptyReason" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section.section">
-      <path value="Composition.section.section" />
-      <max value="0" />
     </element>
   </differential>
 </StructureDefinition>

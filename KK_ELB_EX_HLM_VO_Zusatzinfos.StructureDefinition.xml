@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Zusatzinfos" />
+  <name value="KK_ELB_EX_Zusatzinfos" />
+  <status value="draft" />
+  <date value="2023-02-14T08:52:02.3268038+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Composition" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="3" />
+    </element>
+    <element id="Extension.extension:therapiebericht">
+      <path value="Extension.extension" />
+      <sliceName value="therapiebericht" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:therapiebericht.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="therapiebericht" />
+    </element>
+    <element id="Extension.extension:therapiebericht.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:hausbesuch">
+      <path value="Extension.extension" />
+      <sliceName value="hausbesuch" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:hausbesuch.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="hausbesuch" />
+    </element>
+    <element id="Extension.extension:hausbesuch.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz">
+      <path value="Extension.extension" />
+      <sliceName value="therapiefrequenz" />
+      <min value="0" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="therapiefrequenz" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Range" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].low">
+      <path value="Extension.extension.value[x].low" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].low.value">
+      <path value="Extension.extension.value[x].low.value" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].low.unit">
+      <path value="Extension.extension.value[x].low.unit" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].low.system">
+      <path value="Extension.extension.value[x].low.system" />
+      <min value="1" />
+      <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].high">
+      <path value="Extension.extension.value[x].high" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].high.value">
+      <path value="Extension.extension.value[x].high.value" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].high.unit">
+      <path value="Extension.extension.value[x].high.unit" />
+      <min value="1" />
+    </element>
+    <element id="Extension.extension:therapiefrequenz.value[x].high.system">
+      <path value="Extension.extension.value[x].high.system" />
+      <min value="1" />
+      <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+    <element id="Extension.extension:unterschrift">
+      <path value="Extension.extension" />
+      <sliceName value="unterschrift" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:unterschrift.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="unterschrift" />
+    </element>
+    <element id="Extension.extension:unterschrift.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Zusatzinfos" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

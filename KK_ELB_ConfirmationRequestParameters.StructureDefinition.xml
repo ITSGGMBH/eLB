@@ -20,10 +20,6 @@
         <expression value="parameter.where(name = 'requestType' and (value as Coding).system = 'https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType' and (value as Coding).code = 'REQUEST_WITH_CALLBACK').exists() implies parameter.where(name = 'callbackUrl' and (value as url).exists()).exists()" />
       </constraint>
     </element>
-    <element id="Parameters.id">
-      <path value="Parameters.id" />
-      <max value="0" />
-    </element>
     <element id="Parameters.meta">
       <path value="Parameters.meta" />
       <min value="1" />

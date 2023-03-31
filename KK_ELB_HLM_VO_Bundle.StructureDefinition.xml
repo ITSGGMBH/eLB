@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle" />
-  <name value="KK_ELB_ResponseDocumentBundle" />
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_DocumentBundle" />
+  <name value="KK_ELB_HLM_VO_DocumentBundle" />
   <status value="draft" />
-  <date value="2023-02-01T09:34:05.8644693+00:00" />
+  <date value="2023-02-09T10:12:27.6093829+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -11,16 +11,14 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
   <derivation value="constraint" />
   <differential>
-    <element id="Bundle.meta">
-      <path value="Bundle.meta" />
-      <min value="1" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Bundle.meta.profile">
-      <path value="Bundle.meta.profile" />
-      <min value="1" />
-      <max value="1" />
-      <mustSupport value="true" />
+    <element id="Bundle">
+      <path value="Bundle" />
+      <constraint>
+        <key value="HLMKatalog" />
+        <severity value="error" />
+        <human value="Es muss mindestens ein Heilmittel nach Maßgabe des Kataloges vorhanden sein" />
+        <expression value="entry.where(resource is ServiceRequest).select(resource.category.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_Section_Type' and code='HLM')).exists()" />
+      </constraint>
     </element>
     <element id="Bundle.implicitRules">
       <path value="Bundle.implicitRules" />
@@ -35,6 +33,10 @@
       <min value="1" />
       <mustSupport value="true" />
     </element>
+    <element id="Bundle.identifier.id">
+      <path value="Bundle.identifier.id" />
+      <max value="0" />
+    </element>
     <element id="Bundle.identifier.use">
       <path value="Bundle.identifier.use" />
       <max value="0" />
@@ -46,7 +48,6 @@
     <element id="Bundle.identifier.system">
       <path value="Bundle.identifier.system" />
       <min value="1" />
-      <fixedUri value="urn:ietf:rfc:3986" />
       <mustSupport value="true" />
     </element>
     <element id="Bundle.identifier.value">
@@ -65,7 +66,6 @@
     <element id="Bundle.type">
       <path value="Bundle.type" />
       <fixedCode value="document" />
-      <mustSupport value="true" />
     </element>
     <element id="Bundle.timestamp">
       <path value="Bundle.timestamp" />
@@ -89,8 +89,7 @@
         </discriminator>
         <rules value="closed" />
       </slicing>
-      <min value="2" />
-      <max value="2" />
+      <min value="1" />
       <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition">
@@ -98,78 +97,47 @@
       <sliceName value="composition" />
       <min value="1" />
       <max value="1" />
-    </element>
-    <element id="Bundle.entry:composition.fullUrl">
-      <path value="Bundle.entry.fullUrl" />
-      <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition.resource">
       <path value="Bundle.entry.resource" />
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_Composition" />
       </type>
+      <mustSupport value="true" />
     </element>
-    <element id="Bundle.entry:chargeItem">
+    <element id="Bundle.entry:composition.search">
+      <path value="Bundle.entry.search" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.request">
+      <path value="Bundle.entry.request" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:composition.response">
+      <path value="Bundle.entry.response" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry:heilmittel">
       <path value="Bundle.entry" />
-      <sliceName value="chargeItem" />
+      <sliceName value="heilmittel" />
       <min value="1" />
-      <max value="1" />
+      <mustSupport value="true" />
     </element>
-    <element id="Bundle.entry:chargeItem.fullUrl">
-      <path value="Bundle.entry.fullUrl" />
-      <min value="1" />
-    </element>
-    <element id="Bundle.entry:chargeItem.resource">
+    <element id="Bundle.entry:heilmittel.resource">
       <path value="Bundle.entry.resource" />
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_ServiceRequest" />
       </type>
-    </element>
-    <element id="Bundle.signature.type">
-      <path value="Bundle.signature.type" />
-      <max value="1" />
       <mustSupport value="true" />
     </element>
-    <element id="Bundle.signature.type.system">
-      <path value="Bundle.signature.type.system" />
-      <min value="1" />
-      <fixedUri value="urn:iso-astm:E1762-95:2013" />
-    </element>
-    <element id="Bundle.signature.type.code">
-      <path value="Bundle.signature.type.code" />
-      <min value="1" />
-      <fixedCode value="1.2.840.10065.1.12.1.5" />
-    </element>
-    <element id="Bundle.signature.when">
-      <path value="Bundle.signature.when" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Bundle.signature.who">
-      <path value="Bundle.signature.who" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Bundle.signature.who.identifier">
-      <path value="Bundle.signature.who.identifier" />
-      <min value="1" />
-      <type>
-        <code value="Identifier" />
-        <profile value="http://fhir.de/StructureDefinition/identifier-iknr" />
-      </type>
-    </element>
-    <element id="Bundle.signature.sigFormat">
-      <path value="Bundle.signature.sigFormat" />
-      <min value="1" />
-      <fixedCode value="application/signature+xml" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Bundle.signature.data">
-      <path value="Bundle.signature.data" />
-      <min value="1" />
-      <mustSupport value="true" />
+    <element id="Bundle.signature">
+      <path value="Bundle.signature" />
+      <max value="0" />
     </element>
   </differential>
 </StructureDefinition>

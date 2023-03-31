@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_InvoiceContainerBundle" />
+  <name value="KK_ELB_InvoiceContainerBundle" />
+  <status value="draft" />
+  <date value="2023-02-09T09:59:55.8540004+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle">
+      <path value="Bundle" />
+      <constraint>
+        <key value="Therapieart" />
+        <severity value="error" />
+        <human value="Es darf nicht sowohl ein ServiceRequest mit GT als auch mit ET geben" />
+        <expression value="entry.where(resource is ServiceRequest).select(resource.code.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_LER_Zusatzinfos').where(code='GT')).exists() implies entry.where(resource is ServiceRequest).select(resource.code.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_LER_Zusatzinfos').where(code='ET')).exists().not()" />
+      </constraint>
+      <constraint>
+        <key value="DiffTherapieart" />
+        <severity value="error" />
+        <human value="Jede Therarpieart darf nur einmal innerhalb des Containers vorkommen" />
+        <expression value="entry.where(resource is ServiceRequest).select(resource.code.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_LER_Zusatzinfos').code).isDistinct()" />
+      </constraint>
+    </element>
+    <element id="Bundle.meta">
+      <path value="Bundle.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.meta.profile">
+      <path value="Bundle.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.implicitRules">
+      <path value="Bundle.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.language">
+      <path value="Bundle.language" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.identifier">
+      <path value="Bundle.identifier" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.identifier.system">
+      <path value="Bundle.identifier.system" />
+      <min value="1" />
+      <fixedUri value="https://e-lb.de/fhir/sid/KK_ELB_Belegnummer" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.identifier.value">
+      <path value="Bundle.identifier.value" />
+      <min value="1" />
+      <maxLength value="10" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <fixedCode value="collection" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.link">
+      <path value="Bundle.link" />
+      <max value="0" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resource" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:SignedChargeItem">
+      <path value="Bundle.entry" />
+      <sliceName value="SignedChargeItem" />
+      <min value="1" />
+      <constraint>
+        <key value="sig-1" />
+        <severity value="error" />
+        <human value="Signature of ChargeItem must be present" />
+        <expression value="resource.signature.exists()" />
+        <xpath value="exists(f:resource:signature)" />
+      </constraint>
+    </element>
+    <element id="Bundle.entry:SignedChargeItem.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:SignedChargeItem.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle" />
+      </type>
+    </element>
+    <element id="Bundle.entry:BinaryFile">
+      <path value="Bundle.entry" />
+      <sliceName value="BinaryFile" />
+    </element>
+    <element id="Bundle.entry:BinaryFile.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:BinaryFile.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Binary" />
+      </type>
+    </element>
+    <element id="Bundle.entry:BinaryFile.resource.data">
+      <path value="Bundle.entry.resource.data" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:HebammeAttestServiceRequest">
+      <path value="Bundle.entry" />
+      <sliceName value="HebammeAttestServiceRequest" />
+    </element>
+    <element id="Bundle.entry:HebammeAttestServiceRequest.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:HebammeAttestServiceRequest.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ServiceRequest" />
+      </type>
+    </element>
+    <element id="Bundle.entry:Condition">
+      <path value="Bundle.entry" />
+      <sliceName value="Condition" />
+    </element>
+    <element id="Bundle.entry:Condition.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:Condition.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Condition" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.entry:HeilmittelBundle">
+      <path value="Bundle.entry" />
+      <sliceName value="HeilmittelBundle" />
+    </element>
+    <element id="Bundle.entry:HeilmittelBundle.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:HeilmittelBundle.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_DocumentBundle" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.entry:LERZusatzinfoServiceRequest">
+      <path value="Bundle.entry" />
+      <sliceName value="LERZusatzinfoServiceRequest" />
+      <max value="2" />
+    </element>
+    <element id="Bundle.entry:LERZusatzinfoServiceRequest.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:LERZusatzinfoServiceRequest.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_LER_Zusatzinfos_ServiceRequest" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+  </differential>
+</StructureDefinition>
