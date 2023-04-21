@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_VO_DocumentBundle" />
   <name value="KK_ELB_HLM_VO_DocumentBundle" />
   <status value="draft" />
-  <date value="2023-02-09T10:12:27.6093829+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -19,6 +19,17 @@
         <human value="Es muss mindestens ein Heilmittel nach Maßgabe des Kataloges vorhanden sein" />
         <expression value="entry.where(resource is ServiceRequest).select(resource.category.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_Section_Type' and code='HLM')).exists()" />
       </constraint>
+    </element>
+    <element id="Bundle.meta">
+      <path value="Bundle.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.meta.profile">
+      <path value="Bundle.meta.profile" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.implicitRules">
       <path value="Bundle.implicitRules" />
@@ -66,6 +77,7 @@
     <element id="Bundle.type">
       <path value="Bundle.type" />
       <fixedCode value="document" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.timestamp">
       <path value="Bundle.timestamp" />

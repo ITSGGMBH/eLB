@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Condition" />
   <name value="KK_ELB_Condition" />
   <status value="draft" />
-  <date value="2023-01-16T09:45:45.5224937+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -121,6 +121,15 @@
         <code value="Identifier" />
         <profile value="http://fhir.de/StructureDefinition/identifier-kvid-10" />
       </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Condition.subject.identifier.system">
+      <path value="Condition.subject.identifier.system" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Condition.subject.identifier.value">
+      <path value="Condition.subject.identifier.value" />
+      <mustSupport value="true" />
     </element>
   </differential>
 </StructureDefinition>

@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle" />
   <name value="KK_ELB_ResponseDocumentBundle" />
   <status value="draft" />
-  <date value="2023-02-01T09:34:05.8644693+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -98,10 +98,12 @@
       <sliceName value="composition" />
       <min value="1" />
       <max value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition.fullUrl">
       <path value="Bundle.entry.fullUrl" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:composition.resource">
       <path value="Bundle.entry.resource" />
@@ -110,16 +112,19 @@
         <code value="Resource" />
         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition" />
       </type>
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:chargeItem">
       <path value="Bundle.entry" />
       <sliceName value="chargeItem" />
       <min value="1" />
       <max value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:chargeItem.fullUrl">
       <path value="Bundle.entry.fullUrl" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.entry:chargeItem.resource">
       <path value="Bundle.entry.resource" />
@@ -128,6 +133,7 @@
         <code value="Resource" />
         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem" />
       </type>
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.signature.type">
       <path value="Bundle.signature.type" />
@@ -138,11 +144,13 @@
       <path value="Bundle.signature.type.system" />
       <min value="1" />
       <fixedUri value="urn:iso-astm:E1762-95:2013" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.signature.type.code">
       <path value="Bundle.signature.type.code" />
       <min value="1" />
       <fixedCode value="1.2.840.10065.1.12.1.5" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.signature.when">
       <path value="Bundle.signature.when" />
@@ -159,6 +167,15 @@
         <code value="Identifier" />
         <profile value="http://fhir.de/StructureDefinition/identifier-iknr" />
       </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.signature.who.identifier.system">
+      <path value="Bundle.signature.who.identifier.system" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Bundle.signature.who.identifier.value">
+      <path value="Bundle.signature.who.identifier.value" />
+      <mustSupport value="true" />
     </element>
     <element id="Bundle.signature.sigFormat">
       <path value="Bundle.signature.sigFormat" />

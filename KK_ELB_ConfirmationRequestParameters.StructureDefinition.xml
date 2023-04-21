@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters" />
   <name value="KK_ELB_ConfirmationRequestParameters" />
   <status value="draft" />
-  <date value="2023-01-18T09:05:29.8139924+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -209,10 +209,12 @@
       <path value="Parameters.parameter.value[x].system" />
       <min value="1" />
       <fixedCode value="email" />
+      <mustSupport value="true" />
     </element>
     <element id="Parameters.parameter:emailContactPoint.value[x].value">
       <path value="Parameters.parameter.value[x].value" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Parameters.parameter:emailContactPoint.value[x].use">
       <path value="Parameters.parameter.value[x].use" />

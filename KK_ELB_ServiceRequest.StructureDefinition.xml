@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ServiceRequest" />
   <name value="KK_ELB_ServiceRequest" />
   <status value="draft" />
-  <date value="2023-01-16T09:45:45.5224937+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -101,20 +101,24 @@
     <element id="ServiceRequest.quantity[x].value">
       <path value="ServiceRequest.quantity[x].value" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.quantity[x].unit">
       <path value="ServiceRequest.quantity[x].unit" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.quantity[x].system">
       <path value="ServiceRequest.quantity[x].system" />
       <min value="1" />
       <fixedUri value="http://unitsofmeasure.org" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.quantity[x].code">
       <path value="ServiceRequest.quantity[x].code" />
       <min value="1" />
       <fixedCode value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.subject">
       <path value="ServiceRequest.subject" />
@@ -127,6 +131,15 @@
         <code value="Identifier" />
         <profile value="http://fhir.de/StructureDefinition/identifier-kvid-10" />
       </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.system">
+      <path value="ServiceRequest.subject.identifier.system" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.value">
+      <path value="ServiceRequest.subject.identifier.value" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.encounter">
       <path value="ServiceRequest.encounter" />
@@ -149,15 +162,18 @@
     <element id="ServiceRequest.requester.identifier">
       <path value="ServiceRequest.requester.identifier" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.requester.identifier.system">
       <path value="ServiceRequest.requester.identifier.system" />
       <min value="1" />
       <fixedUri value="https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.requester.identifier.value">
       <path value="ServiceRequest.requester.identifier.value" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="ServiceRequest.performerType">
       <path value="ServiceRequest.performerType" />

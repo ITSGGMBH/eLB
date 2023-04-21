@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Zusatzinfos" />
   <name value="KK_ELB_EX_Zusatzinfos" />
   <status value="draft" />
-  <date value="2023-02-14T08:52:02.3268038+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="complex-type" />
   <abstract value="false" />
@@ -22,7 +22,7 @@
           <type value="value" />
           <path value="url" />
         </discriminator>
-        <rules value="closed" />
+        <rules value="open" />
       </slicing>
       <min value="3" />
     </element>
@@ -84,36 +84,44 @@
     <element id="Extension.extension:therapiefrequenz.value[x].low">
       <path value="Extension.extension.value[x].low" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].low.value">
       <path value="Extension.extension.value[x].low.value" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].low.unit">
       <path value="Extension.extension.value[x].low.unit" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].low.system">
       <path value="Extension.extension.value[x].low.system" />
       <min value="1" />
       <fixedUri value="http://unitsofmeasure.org" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].high">
       <path value="Extension.extension.value[x].high" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].high.value">
       <path value="Extension.extension.value[x].high.value" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].high.unit">
       <path value="Extension.extension.value[x].high.unit" />
       <min value="1" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:therapiefrequenz.value[x].high.system">
       <path value="Extension.extension.value[x].high.system" />
       <min value="1" />
       <fixedUri value="http://unitsofmeasure.org" />
+      <mustSupport value="true" />
     </element>
     <element id="Extension.extension:unterschrift">
       <path value="Extension.extension" />

@@ -3,7 +3,7 @@
   <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_PollingRequest" />
   <name value="KK_ELB_PollingRequest" />
   <status value="draft" />
-  <date value="2023-02-01T09:34:05.8644693+00:00" />
+  <date value="2023-04-13T09:00:58.8118673+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
