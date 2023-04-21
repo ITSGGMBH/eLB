@@ -312,7 +312,7 @@
                                 <meta>
                                     <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_LER_Zusatzinfos_ServiceRequest"/>
                                 </meta>
-                                <status value="active"/>
+                                <status value="unknown"/>
                                 <intent value="order"/>
                                 <code>
                                     <coding>
@@ -336,7 +336,7 @@
                                 <meta>
                                     <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_HLM_LER_Zusatzinfos_ServiceRequest"/>
                                 </meta>
-                                <status value="active"/>
+                                <status value="unknown"/>
                                 <intent value="order"/>
                                 <code>
                                     <coding>
