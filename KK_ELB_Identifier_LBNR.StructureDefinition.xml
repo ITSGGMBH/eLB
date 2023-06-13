@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Identifier_LBNR" />
+  <name value="KK_ELB_Identifier_LBNR" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Identifier" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Identifier" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Identifier.system">
+      <path value="Identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.de/sid/bfarm/lbnr" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Identifier.value">
+      <path value="Identifier.value" />
+      <min value="1" />
+      <constraint>
+        <key value="LaengeLBNR" />
+        <severity value="error" />
+        <human value="Eine LBNR muss neunstellig numerisch sein." />
+        <expression value="matches('^[0-9]{9}$')" />
+      </constraint>
+      <mustSupport value="true" />
+    </element>
+  </differential>
+</StructureDefinition>
