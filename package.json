@@ -1,6 +1,6 @@
 {
-  "name": "eLB",
-  "version": "0.1.0",
+  "name": "de.e-lb.r4",
+  "version": "1.0.0",
   "description": "FHIR Profile für das Verfahren der elektronischen Versichertenbestätigung",
   "dependencies": {
     "hl7.fhir.r4.core": "4.0.1",
