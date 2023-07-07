@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_HLM_Section_Type" />
+  <version value="1.0.0" />
   <name value="KK_ELB_CS_HLM_Section_Type" />
   <status value="active" />
   <experimental value="false" />
