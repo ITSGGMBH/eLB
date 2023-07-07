@@ -16,10 +16,8 @@
       <constraint>
         <key value="LBNR" />
         <severity value="error" />
-        <human
-          value="In performer:angestellteLeistungserbringerin ist keine LBNR angegeben, diese ist aber eine Pflichtangabe bei dem verwendeten SGS code." />
-        <expression
-          value="performer.where(actor.type='Organization').function.coding.where(code='C' or code='R').exists() implies (performer.all(actor.where(type='Practitioner').exists().not()) or performer.actor.where(type='Practitioner').identifier.where(system='http://fhir.de/sid/bfarm/lbnr').exists())" />
+        <human value="In performer:angestellteLeistungserbringerin ist keine LBNR angegeben, diese ist aber eine Pflichtangabe bei dem verwendeten SGS code." />
+        <expression value="performer.where(actor.type='Organization').function.coding.where(code='C' or code='R').exists() implies (performer.all(actor.where(type='Practitioner').exists().not()) or performer.actor.where(type='Practitioner').identifier.where(system='http://fhir.de/sid/bfarm/lbnr').exists())" />
       </constraint>
     </element>
     <element id="ChargeItem.id">
@@ -173,8 +171,7 @@
     <element id="ChargeItem.performer:leistungserbringerOrganisation">
       <path value="ChargeItem.performer" />
       <sliceName value="leistungserbringerOrganisation" />
-      <comment
-        value="In diesem Slice wird die Leistungserbringer-Organisation bzw. der Leistungserbringer anhand des IKs identifiziert. Die Funktion des Leistungserbringer wird anhand des Sammelgruppenschlüssels in der function angegeben." />
+      <comment value="In diesem Slice wird die Leistungserbringer-Organisation bzw. der Leistungserbringer anhand des IKs identifiziert. Die Funktion des Leistungserbringer wird anhand des Sammelgruppenschlüssels in der function angegeben." />
       <min value="1" />
       <max value="1" />
       <mustSupport value="true" />
@@ -231,8 +228,7 @@
     <element id="ChargeItem.performer:angestellteLeistungserbringerin">
       <path value="ChargeItem.performer" />
       <sliceName value="angestellteLeistungserbringerin" />
-      <comment
-        value="In diesem Slice muss bei einem angestelltenverhältnisses des Leistungserbringers zusätzlich zur IK der Leistungserbringer-Organisation der Name des Leistungserbringers angegeben werden." />
+      <comment value="In diesem Slice muss bei einem angestelltenverhältnisses des Leistungserbringers zusätzlich zur IK der Leistungserbringer-Organisation der Name des Leistungserbringers angegeben werden." />
       <max value="1" />
     </element>
     <element id="ChargeItem.performer:angestellteLeistungserbringerin.actor">
