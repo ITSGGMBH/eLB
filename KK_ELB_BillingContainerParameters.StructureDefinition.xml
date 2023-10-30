@@ -49,7 +49,7 @@
         </discriminator>
         <rules value="closed" />
       </slicing>
-      <min value="5" />
+      <min value="3" />
     </element>
     <element id="Parameters.parameter:emailContactPoint">
       <path value="Parameters.parameter" />
@@ -107,74 +107,6 @@
       <max value="0" />
     </element>
     <element id="Parameters.parameter:emailContactPoint.part">
-      <path value="Parameters.parameter.part" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber">
-      <path value="Parameters.parameter" />
-      <sliceName value="referenceNumber" />
-      <min value="1" />
-      <max value="1" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.id">
-      <path value="Parameters.parameter.id" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.name">
-      <path value="Parameters.parameter.name" />
-      <fixedString value="referenceNumber" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.value[x]">
-      <path value="Parameters.parameter.value[x]" />
-      <min value="1" />
-      <type>
-        <code value="string" />
-      </type>
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.value[x].id">
-      <path value="Parameters.parameter.value[x].id" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.resource">
-      <path value="Parameters.parameter.resource" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:referenceNumber.part">
-      <path value="Parameters.parameter.part" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted">
-      <path value="Parameters.parameter" />
-      <sliceName value="termsOfUseAccepted" />
-      <min value="1" />
-      <max value="1" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted.id">
-      <path value="Parameters.parameter.id" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted.name">
-      <path value="Parameters.parameter.name" />
-      <fixedString value="termsOfUseAccepted" />
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted.value[x]">
-      <path value="Parameters.parameter.value[x]" />
-      <min value="1" />
-      <type>
-        <code value="boolean" />
-      </type>
-      <mustSupport value="true" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted.resource">
-      <path value="Parameters.parameter.resource" />
-      <max value="0" />
-    </element>
-    <element id="Parameters.parameter:termsOfUseAccepted.part">
       <path value="Parameters.parameter.part" />
       <max value="0" />
     </element>
