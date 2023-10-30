@@ -4,7 +4,7 @@
   <version value="1.0.0" />
   <name value="KK_ELB_ChargeItem" />
   <status value="draft" />
-  <date value="2023-04-13T09:00:58.8118673+00:00" />
+  <date value="2023-09-11T07:14:25.1972434+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -25,6 +25,32 @@
       <path value="ChargeItem.id" />
       <mustSupport value="false" />
     </element>
+    <element id="ChargeItem.meta">
+      <path value="ChargeItem.meta" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.meta.security">
+      <path value="ChargeItem.meta.security" />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.meta.security.system">
+      <path value="ChargeItem.meta.security.system" />
+      <min value="1" />
+      <fixedUri value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ChargeItem.meta.security.code">
+      <path value="ChargeItem.meta.security.code" />
+      <min value="1" />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="https://e-lb.de/fhir/ValueSet/KK_ELB_VS_Nutzungsbedingung_Version" />
+      </binding>
+    </element>
     <element id="ChargeItem.implicitRules">
       <path value="ChargeItem.implicitRules" />
       <max value="0" />
@@ -43,13 +69,6 @@
     </element>
     <element id="ChargeItem.extension">
       <path value="ChargeItem.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
     <element id="ChargeItem.extension:Payor">

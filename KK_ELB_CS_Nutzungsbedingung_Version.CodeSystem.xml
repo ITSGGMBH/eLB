@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_CS_Nutzungsbedingung_Version" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-09-11T07:25:21.1227542+00:00" />
+  <description value="Abbildung der Versionen von Nutzungsbedingungen" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="1" />
+    <display value="Nutzungsbedingung gültig ab 04.09.2023" />
+  </concept>
+</CodeSystem>

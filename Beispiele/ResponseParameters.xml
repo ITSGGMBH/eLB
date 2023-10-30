@@ -64,6 +64,10 @@
                         <ChargeItem xmlns="http://hl7.org/fhir">
                             <meta>
 								<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+								<security>
+									<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+									<code value="1"/>
+								</security>
 							</meta>
 							<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
 								<valueIdentifier>
@@ -179,6 +183,10 @@
                         <ChargeItem xmlns="http://hl7.org/fhir">
                             <meta>
 								<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+								<security>
+									<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+									<code value="1"/>
+								</security>
 							</meta>
 							<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
 								<valueIdentifier>

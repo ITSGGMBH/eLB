@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS" />
-	<version value="1.0.0" />
-	<name value="KK_ELB_SGS" />
-	<status value="active" />
-	<date value="2023-04-13T09:00:58.8118673+00:00" />
-	<description value="Schlüssel Kennzeichen Leistungserbringer-Sammelgruppenschlüssel" />
-	<caseSensitive value="true" />
-	<content value="complete" />
-	<concept>
-		<code value="A" />
-		<display value="Leistungserbringer von Hilfsmitteln" />
-	</concept>
-	<concept>
-		<code value="B" />
-		<display value="Leistungserbringer von Heilmitteln" />
-	</concept>
-	<concept>
-		<code value="C" />
-		<display value="Leistungserbringer von häuslicher Krankenpflege" />
-	</concept>
-	<concept>
-		<code value="F" />
-		<display value="Hebammen" />
-	</concept>
-	<concept>
-		<code value="R" />
-		<display value="Außerklinische Intensivpflege" />
-	</concept>
+  <url value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_SGS" />
+  <status value="active" />
+  <date value="2023-09-11T08:32:23.5677212+00:00" />
+  <description value="Schlüssel Kennzeichen Leistungserbringer-Sammelgruppenschlüssel" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="A" />
+    <display value="Leistungserbringer von Hilfsmitteln" />
+  </concept>
+  <concept>
+    <code value="B" />
+    <display value="Leistungserbringer von Heilmitteln" />
+  </concept>
+  <concept>
+    <code value="C" />
+    <display value="Leistungserbringer von häuslicher Krankenpflege" />
+  </concept>
+  <concept>
+    <code value="F" />
+    <display value="Hebammen" />
+  </concept>
+  <concept>
+    <code value="R" />
+    <display value="Außerklinische Intensivpflege" />
+  </concept>
 </CodeSystem>

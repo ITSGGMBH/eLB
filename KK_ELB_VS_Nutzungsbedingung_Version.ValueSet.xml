@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/ValueSet/KK_ELB_VS_Nutzungsbedingung_Version" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_VS_Nutzungsbedingung_Version" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-09-07T10:57:07.509285+00:00" />
+  <description value="Das Valueset enthält alle Codes aus dem Codesystem https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version" />
+  <compose>
+    <include>
+      <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version" />
+    </include>
+  </compose>
+</ValueSet>

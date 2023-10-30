@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://fhir.de/StructureDefinition/namingsystem-de-basis" />
+  </meta>
+  <name value="KK_ELB_NS_ChargeItemCode" />
+  <status value="active" />
+  <kind value="codesystem" />
+  <date value="2023-09-07T10:57:07.509285+00:00" />
+  <description value="Leistungsnummer" />
+  <usage value="Die Leistungsnummer ist anzugeben um die erbrachte Leistung zu benennen." />
+  <uniqueId>
+    <type value="uri" />
+    <value value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode" />
+    <preferred value="true" />
+    <period>
+      <start value="2023-09-05" />
+    </period>
+  </uniqueId>
+</NamingSystem>

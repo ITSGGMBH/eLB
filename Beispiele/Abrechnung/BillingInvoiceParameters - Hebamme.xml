@@ -6,17 +6,9 @@
     <parameter>
         <name value="emailContactPoint"/>
         <valueContactPoint>
-             <system value="email"/>
+            <system value="email"/>
             <value value="endpointmanager@example.org"/>
         </valueContactPoint>
-    </parameter>
-    <parameter>
-        <name value="referenceNumber"/>
-        <valueString value="923"/>
-    </parameter>
-    <parameter>
-        <name value="termsOfUseAccepted"/>
-        <valueBoolean value="true"/>
     </parameter>
     <parameter>
         <name value="esolFile"/>
@@ -35,7 +27,7 @@
                     <meta>
                         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_InvoiceContainerBundle"/>
                     </meta>
-					<identifier>
+                    <identifier>
                         <system value="https://e-lb.de/fhir/sid/KK_ELB_Belegnummer"/>
                         <value value="11"/>
                     </identifier>
@@ -90,6 +82,10 @@
                                         <ChargeItem xmlns="http://hl7.org/fhir">
                                             <meta>
                                                 <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+                                                <security>
+                                                    <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+                                                    <code value="1"/>
+                                                </security>
                                             </meta>
                                             <extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
                                                 <valueIdentifier>
@@ -155,7 +151,7 @@
                             </Bundle>
                         </resource>
                     </entry>
-					<entry>
+                    <entry>
                         <fullUrl value="urn:uuid:33322e3e-cb4a-55b6-77f8-dc7dbdb141c2"/>
                         <resource>
                             <ServiceRequest xmlns="http://hl7.org/fhir">
@@ -164,12 +160,12 @@
                                 </meta>
                                 <status value="unknown"/>
                                 <intent value="order"/>
-								<quantityQuantity>
-									<value value="12" />
-									<unit value="{Besuche}" />
-									<system value="http://unitsofmeasure.org" />
-									<code value="1" />
-								 </quantityQuantity>
+                                <quantityQuantity>
+                                    <value value="12"/>
+                                    <unit value="{Besuche}"/>
+                                    <system value="http://unitsofmeasure.org"/>
+                                    <code value="1"/>
+                                </quantityQuantity>
                                 <subject>
                                     <identifier>
                                         <system value="http://fhir.de/sid/gkv/kvid-10"/>
@@ -233,7 +229,7 @@
                                         <version value="2023"/>
                                         <code value="Z39.1"/>
                                     </coding>
-                                    <text value="Wöchnerin benötigt 12 weitere Besuche" />
+                                    <text value="Wöchnerin benötigt 12 weitere Besuche"/>
                                 </code>
                                 <subject>
                                     <identifier>

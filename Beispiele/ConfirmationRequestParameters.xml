@@ -1,140 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Parameters xmlns="http://hl7.org/fhir">
-    <meta>
-        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters"/>
-    </meta>
-    <parameter>
-        <name value="requestType"/>
-        <valueCoding>
-            <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType"/>
-            <code value="REQUEST_WITH_CALLBACK"/>
-        </valueCoding>
-    </parameter>
-    <parameter>
-        <name value="callbackUrl"/>
-        <valueUrl value="https://e-lb.de/fhir/callbackurl"/>
-    </parameter>
-    <parameter>
-        <name value="emailContactPoint"/>
-        <valueContactPoint>
-             <system value="email"/>
-            <value value="endpointmanager@example.org"/>
-        </valueContactPoint>
-    </parameter>
-    <parameter>
-        <name value="softwareIdentifier"/>
-        <valueString value="pvs.example.com"/>
-    </parameter>
-    <parameter>
-        <name value="chargeItem"/>
-        <resource>
-            <ChargeItem xmlns="http://hl7.org/fhir">
-                <meta>
-                    <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
-                </meta>
-                <extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
-					<valueIdentifier>
-						<system value="http://fhir.de/sid/arge-ik/iknr"/>
-						<value value="101575519"/>
-					</valueIdentifier>
-                </extension>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"/>
-                    <value value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
-                </identifier>
-                <status value="unknown"/>
-                <code>
-                    <coding>
-                        <system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
-                        <code value="31600"/>
-                    </coding>
-                </code>
-                <subject>
-                    <identifier>
-                        <system value="http://fhir.de/sid/gkv/kvid-10"/>
-                        <value value="K121212345"/>
-                    </identifier>
-                </subject>
-                <occurrencePeriod>
-                    <start value="2022-06-12T16:50:00+00:00"/>
-                    <end value="2022-06-12T17:50:00+00:00"/>
-                </occurrencePeriod>
-                <performer>
-                    <function>
-                        <coding>
-                            <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
-                            <code value="F"/>
-                        </coding>
-                    </function>
-                    <actor>
-                        <type value="Organization"/>
-                        <identifier>
-                            <system value="http://fhir.de/sid/arge-ik/iknr"/>
-                            <value value="123456789"/>
-                        </identifier>
-                        <display value="Sarah Schneider"/>
-                    </actor>
-                </performer>
-            </ChargeItem>
-        </resource>
-    </parameter>
+	<meta>
+		<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters"/>
+	</meta>
 	<parameter>
-        <name value="chargeItem"/>
-        <resource>
-            <ChargeItem xmlns="http://hl7.org/fhir">
-                <meta>
-                    <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
-                </meta>
-                <extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
+		<name value="requestType"/>
+		<valueCoding>
+			<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType"/>
+			<code value="REQUEST_WITH_CALLBACK"/>
+		</valueCoding>
+	</parameter>
+	<parameter>
+		<name value="callbackUrl"/>
+		<valueUrl value="https://e-lb.de/fhir/callbackurl"/>
+	</parameter>
+	<parameter>
+		<name value="emailContactPoint"/>
+		<valueContactPoint>
+			<system value="email"/>
+			<value value="endpointmanager@example.org"/>
+		</valueContactPoint>
+	</parameter>
+	<parameter>
+		<name value="softwareIdentifier"/>
+		<valueString value="pvs.example.com"/>
+	</parameter>
+	<parameter>
+		<name value="chargeItem"/>
+		<resource>
+			<ChargeItem xmlns="http://hl7.org/fhir">
+				<meta>
+					<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+					<security>
+						<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+						<code value="1"/>
+					</security>
+				</meta>
+				<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
 					<valueIdentifier>
 						<system value="http://fhir.de/sid/arge-ik/iknr"/>
 						<value value="101575519"/>
 					</valueIdentifier>
-                </extension>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"/>
-                    <value value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc9dbdb111c7"/>
-                </identifier>
-                <status value="unknown"/>
-                <code>
-                    <coding>
-                        <system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
-                        <code value="31600"/>
-                    </coding>
-                </code>
-                <subject>
-                    <identifier>
-                        <system value="http://fhir.de/sid/gkv/kvid-10"/>
-                        <value value="K121212345"/>
-                    </identifier>
-                </subject>
-                <occurrencePeriod>
-                    <start value="2022-06-12T16:50:00+00:00"/>
-                    <end value="2022-06-12T17:50:00+00:00"/>
-                </occurrencePeriod>
-                <performer>
-                    <function>
-                        <coding>
-                            <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
-                            <code value="F"/>
-                        </coding>
-                    </function>
-                    <actor>
-                        <type value="Organization"/>
-                        <identifier>
-                            <system value="http://fhir.de/sid/arge-ik/iknr"/>
-                            <value value="123456789"/>
-                        </identifier>
-                        <display value="Praxis Schneider und Co."/>
-                    </actor>
-                </performer>
+				</extension>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc9dbdb111c2"/>
+				</identifier>
+				<status value="unknown"/>
+				<code>
+					<coding>
+						<system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
+						<code value="31600"/>
+					</coding>
+				</code>
+				<subject>
+					<identifier>
+						<system value="http://fhir.de/sid/gkv/kvid-10"/>
+						<value value="K121212345"/>
+					</identifier>
+				</subject>
+				<occurrencePeriod>
+					<start value="2022-06-12T16:50:00+00:00"/>
+					<end value="2022-06-12T17:50:00+00:00"/>
+				</occurrencePeriod>
 				<performer>
-                    <actor>
-                        <type value="Practitioner"/>
-                        <display value="Sarah Schneider"/>
-                    </actor>
-                </performer>
-            </ChargeItem>
-        </resource>
-    </parameter>
+					<function>
+						<coding>
+							<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
+							<code value="F"/>
+						</coding>
+					</function>
+					<actor>
+						<type value="Organization"/>
+						<identifier>
+							<system value="http://fhir.de/sid/arge-ik/iknr"/>
+							<value value="123456789"/>
+						</identifier>
+						<display value="Sarah Schneider"/>
+					</actor>
+				</performer>
+			</ChargeItem>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="chargeItem"/>
+		<resource>
+			<ChargeItem xmlns="http://hl7.org/fhir">
+				<meta>
+					<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+					<security>
+						<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+						<code value="1"/>
+					</security>
+				</meta>
+				<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
+					<valueIdentifier>
+						<system value="http://fhir.de/sid/arge-ik/iknr"/>
+						<value value="101575519"/>
+					</valueIdentifier>
+				</extension>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="urn:uuid:11122e3e-cb4a-55b6-77f8-dc9dbdb111c7"/>
+				</identifier>
+				<status value="unknown"/>
+				<code>
+					<coding>
+						<system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
+						<code value="31600"/>
+					</coding>
+				</code>
+				<subject>
+					<identifier>
+						<system value="http://fhir.de/sid/gkv/kvid-10"/>
+						<value value="K121212345"/>
+					</identifier>
+				</subject>
+				<occurrencePeriod>
+					<start value="2022-06-12T16:50:00+00:00"/>
+					<end value="2022-06-12T17:50:00+00:00"/>
+				</occurrencePeriod>
+				<performer>
+					<function>
+						<coding>
+							<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
+							<code value="F"/>
+						</coding>
+					</function>
+					<actor>
+						<type value="Organization"/>
+						<identifier>
+							<system value="http://fhir.de/sid/arge-ik/iknr"/>
+							<value value="123456789"/>
+						</identifier>
+						<display value="Praxis Schneider und Co."/>
+					</actor>
+				</performer>
+				<performer>
+					<actor>
+						<type value="Practitioner"/>
+						<display value="Sarah Schneider"/>
+					</actor>
+				</performer>
+			</ChargeItem>
+		</resource>
+	</parameter>
 </Parameters>

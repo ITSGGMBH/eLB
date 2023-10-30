@@ -3,20 +3,12 @@
     <meta>
         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_BillingContainerParameters"/>
     </meta>
-	<parameter>
+    <parameter>
         <name value="emailContactPoint"/>
         <valueContactPoint>
-             <system value="email"/>
+            <system value="email"/>
             <value value="endpointmanager@example.org"/>
         </valueContactPoint>
-    </parameter>
-    <parameter>
-        <name value="referenceNumber"/>
-        <valueString value="923"/>
-    </parameter>
-    <parameter>
-        <name value="termsOfUseAccepted"/>
-        <valueBoolean value="true"/>
     </parameter>
     <parameter>
         <name value="esolFile"/>
@@ -35,7 +27,7 @@
                     <meta>
                         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_InvoiceContainerBundle"/>
                     </meta>
-                     <identifier>
+                    <identifier>
                         <system value="https://e-lb.de/fhir/sid/KK_ELB_Belegnummer"/>
                         <value value="1"/>
                     </identifier>
@@ -90,6 +82,10 @@
                                         <ChargeItem xmlns="http://hl7.org/fhir">
                                             <meta>
                                                 <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+                                                <security>
+                                                    <system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+                                                    <code value="1"/>
+                                                </security>
                                             </meta>
                                             <extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
                                                 <valueIdentifier>
@@ -184,17 +180,17 @@
                                                 </extension>
                                                 <extension url="therapiefrequenz">
                                                     <valueRange>
-														<low>
-															<value value="1"/>
-															<unit value="wk"/>
-															<system value="http://unitsofmeasure.org"/>
-														</low>
-														<high>
-															<value value="2"/>
-															<unit value="wk"/>
-															<system value="http://unitsofmeasure.org"/>
-														</high>
-													</valueRange>
+                                                        <low>
+                                                            <value value="1"/>
+                                                            <unit value="wk"/>
+                                                            <system value="http://unitsofmeasure.org"/>
+                                                        </low>
+                                                        <high>
+                                                            <value value="2"/>
+                                                            <unit value="wk"/>
+                                                            <system value="http://unitsofmeasure.org"/>
+                                                        </high>
+                                                    </valueRange>
                                                 </extension>
                                                 <extension url="unterschrift">
                                                     <valueBoolean value="true"/>
