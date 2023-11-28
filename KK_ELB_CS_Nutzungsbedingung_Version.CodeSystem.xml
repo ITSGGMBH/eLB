@@ -10,6 +10,10 @@
   <caseSensitive value="true" />
   <content value="complete" />
   <concept>
+    <code value="0" />
+    <display value="Keine Nutzungsbedingungen akzeptiert." />
+  </concept>
+  <concept>
     <code value="1" />
     <display value="Nutzungsbedingung gültig ab 04.09.2023" />
   </concept>
