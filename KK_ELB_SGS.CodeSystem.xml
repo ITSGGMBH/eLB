@@ -30,7 +30,19 @@
   </concept>
   <concept>
     <code value="F" />
-    <display value="Hebammen" />
+    <display value="Leistungserbringer von Hebammenhilfe und Entbindungspflege" />
+  </concept>
+  <concept>
+    <code value="G" />
+    <display value="Leistungserbringer von nichtärztlicher Dialysesachleistungen" />
+  </concept>
+  <concept>
+    <code value="H" />
+    <display value="Leistungserbringer von Rehabilitationssport" />
+  </concept>
+  <concept>
+    <code value="I" />
+    <display value="Leistungserbringer von Funktionstraining" />
   </concept>
   <concept>
     <code value="R" />
