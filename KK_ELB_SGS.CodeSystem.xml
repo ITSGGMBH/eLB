@@ -21,6 +21,14 @@
     <display value="Leistungserbringer von häuslicher Krankenpflege" />
   </concept>
   <concept>
+    <code value="D" />
+    <display value="Leistungserbringer von Haushaltshilfe" />
+  </concept>
+  <concept>
+    <code value="E" />
+    <display value="Leistungserbringer von Krankentransporten" />
+  </concept>
+  <concept>
     <code value="F" />
     <display value="Hebammen" />
   </concept>
