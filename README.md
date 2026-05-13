@@ -19,42 +19,41 @@ Das Repository enthält die normativen Bausteine:
 
 ```mermaid
 sequenceDiagram
-    participant LER as Leistungserbringer<br/>(Primärsystem)
+    actor LER as Leistungserbringer<br/>(Primärsystem)
     participant KTR as Kostenträger<br/>(Bestätigungssystem)
-    participant VRS as Versicherte:r<br/>(App)
+    actor VRS as Versicherte:r<br/>(App)
 
     Note over LER,KTR: 1. Teilnahmestatus abfragen
-    LER->>KTR: KK_ELB_ParticipationStatusRequestParameters
-    KTR->>LER: KK_ELB_ParticipationStatusResponseParameters
+    LER->>KTR: Teilnahmeanfrage mittels eKVNR
+    KTR->>LER: Antwort zum Teilnahmestatus
 
     Note over LER,KTR: 2. Bestätigungsanfrage
-    LER->>KTR: KK_ELB_ConfirmationRequestParameters<br/>(enthält 1..n ChargeItem)
-    KTR->>VRS: Bestätigung anfordern
-    VRS->>KTR: Leistung bestätigen / ablehnen (App)
+    LER->>KTR: Bestätigungsanfrage mit Leistungsdaten
+    KTR-->>VRS: Bestätigung anfordern
+    VRS-->>KTR: Leistung bestätigen / ablehnen (App)
 
-    Note over LER,KTR: 3. Antwort
+    Note over LER,KTR: 3. Bestätigungsantwort
     alt synchron (Polling)
-        LER->>KTR: KK_ELB_PollingRequest
-        KTR->>LER: KK_ELB_ResponseParameters
+        LER->>KTR: Abruf von Bestätigungen
+        KTR->>LER: Bestätiung/Ablehnung
     else asynchron (Callback)
-        KTR->>LER: KK_ELB_ResponseParameters
+        KTR-->>LER: Bestätiung/Ablehnung
     end
 
     Note over LER,KTR: 4. Empfangsquittung
-    LER->>KTR: KK_ELB_ConfirmationOfResponse
+    LER->>KTR: Abruf der Bestätiung/Ablehnung quittieren
 ```
 
 Die einzelnen Operationen sind als folgende Parameters-Profile modelliert:
 
 | Schritt | Profil | Zweck |
 | --- | --- | --- |
-| Anfrage | `KK_ELB_ConfirmationRequestParameters` | Leistungserbringer reicht eine oder mehrere `KK_ELB_ChargeItem` zur Bestätigung ein |
-| Antwort | `KK_ELB_ResponseParameters` (mit `KK_ELB_ResponseDocumentBundle`) | Kostenträger liefert bestätigte/abgelehnte ChargeItems als signiertes Document-Bundle |
-| Polling | `KK_ELB_PollingRequest` | Bei asynchroner Antwort: Abruf des Ergebnisses durch Patient, Kostenträger, Leistungserbringer oder System |
-| Empfangsquittung | `KK_ELB_ConfirmationOfResponse` | Bestätigt den Empfang der Antwort beim Leistungserbringer |
-| Teilnehmerabfrage | `KK_ELB_ParticipationStatusRequestParameters` / `…ResponseParameters` | Abfrage, welche Kostenträger das eLB-Verfahren aktiv unterstützen |
-| Abrechnung | `KK_ELB_BillingContainerParameters` mit `KK_ELB_InvoiceContainerBundle` | Übergang in die §302-Abrechnung |
-| Heilmittel-Verordnung | `KK_ELB_HLM_VO_DocumentBundle` mit `…_Composition` und `…_ServiceRequest` | Bringt die ärztliche Verordnung als Dokument mit |
+| Teilnehmerabfrage | `KK_ELB_ParticipationStatusRequestParameters` / `…ResponseParameters` | Abfrage ob Versicherter am eLB-Verfahren teilnimmt|
+| Anfrage | `KK_ELB_ConfirmationRequestParameters` | Leistungserbringer reicht Anfrage (`KK_ELB_ChargeItem`) mit Leistungsdaten (eKVNR, Abrechnungspositionsnummer, Leistungszeiten etc.)  zur Bestätigung ein |
+| Antwort | `KK_ELB_ResponseParameters` (mit `KK_ELB_ResponseDocumentBundle`) | Kostenträger liefert bestätigte/abgelehnte ChargeItems als (signiertes) Document-Bundle |
+| Polling | `KK_ELB_PollingRequest` | Abruf von Leistungsbestätigungen-/ablehnungen (Polling-Verfahren)|
+| Empfangsquittung | `KK_ELB_ConfirmationOfResponse` | Bestätigt den erfolgreichen Abruf der Antwort beim Leistungserbringer |
+| Abrechnung | `KK_ELB_BillingContainerParameters` mit `KK_ELB_InvoiceContainerBundle` | Container einer eLB Abrechnung (EDIFACT + Leistungsbestätigungen + digitalisierte Unterlagen) |
 
 ## Abgedeckte Leistungsbereiche
 
@@ -66,9 +65,8 @@ Die Leistungsbereiche werden über das CodeSystem `KK_ELB_SGS` (Leistungserbring
 | `B` | Leistungserbringer von Heilmitteln |
 | `C` | Leistungserbringer von häuslicher Krankenpflege |
 | `D` | Leistungserbringer von Haushaltshilfe |
-| `E` | Leistungserbringer von Krankentransporten |
-| `F` | Hebammen |
-| `R` | Außerklinische Intensivpflege |
+| `E` | Leistungserbringer von Krankentransportleistungen |
+| `F` | Leistungserbringer von Hebammenhilfe und Entbindungspflege |
 
 ## Repository-Struktur
 
