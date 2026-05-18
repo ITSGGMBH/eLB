@@ -6,7 +6,7 @@ Veröffentlichte Spezifikation: [eleistungsbestaetigung.de](https://www.eleistun
 
 ## Worum geht es?
 
-Die elektronische Leistungsbestätigung löst den papier- und unterschriftsgebundenen Leistungsnachweis ab. Versicherte bestätigen die in Anspruch genommene Leistung gegenüber ihrer Krankenkasse digital; der Leistungserbringer erhält die Bestätigung als FHIR-Dokument und kann seinen Abrechnungsdatensatz aufsetzen.
+Die elektronische Leistungsbestätigung löst den papier- und unterschriftsgebundenen Leistungsnachweis ab. Versicherte bestätigen die in Anspruch genommene Leistung mittels App ihrer Krankenkasse digital; der Leistungserbringer erhält die Bestätigung als FHIR-Dokument und kann seine Abrechnung somit vollständig digital erstellen.
 
 Das Repository enthält die normativen Bausteine:
 
@@ -27,21 +27,21 @@ sequenceDiagram
     LER->>KTR: Teilnahmeanfrage mittels eKVNR
     KTR->>LER: Antwort zum Teilnahmestatus
 
-    Note over LER,KTR: 2. Bestätigungsanfrage
-    LER->>KTR: Bestätigungsanfrage mit Leistungsdaten
+    Note over LER,KTR: 2. Bestätigungsanfrage senden
+    LER->>+KTR: Bestätigungsanfrage mit Leistungsdaten
     KTR-->>VRS: Bestätigung anfordern
-    VRS-->>KTR: Leistung bestätigen / ablehnen (App)
+    VRS-->>KTR: Leistung bestätigen / ablehnen
 
-    Note over LER,KTR: 3. Bestätigungsantwort
-    alt synchron (Polling)
+    Note over LER,KTR: 3. Bestätigungsantwort abrufen/empfangen
+    alt asynchron (Callback)
+        KTR-->>-LER: Bestätigung/Ablehnung
+    else synchron (Polling)
         LER->>KTR: Abruf von Bestätigungen
-        KTR->>LER: Bestätiung/Ablehnung
-    else asynchron (Callback)
-        KTR-->>LER: Bestätiung/Ablehnung
+        KTR->>LER: Bestätigung/Ablehnung
     end
 
     Note over LER,KTR: 4. Empfangsquittung
-    LER->>KTR: Abruf der Bestätiung/Ablehnung quittieren
+    LER->>KTR: Abruf der Bestätigung/Ablehnung quittieren
 ```
 
 Die einzelnen Operationen sind als folgende Parameters-Profile modelliert:
@@ -49,7 +49,7 @@ Die einzelnen Operationen sind als folgende Parameters-Profile modelliert:
 | Schritt | Profil | Zweck |
 | --- | --- | --- |
 | Teilnehmerabfrage | `KK_ELB_ParticipationStatusRequestParameters` / `…ResponseParameters` | Abfrage ob Versicherter am eLB-Verfahren teilnimmt|
-| Anfrage | `KK_ELB_ConfirmationRequestParameters` | Leistungserbringer reicht Anfrage (`KK_ELB_ChargeItem`) mit Leistungsdaten (eKVNR, Abrechnungspositionsnummer, Leistungszeiten etc.)  zur Bestätigung ein |
+| Anfrage | `KK_ELB_ConfirmationRequestParameters` | <ul><li>Leistungserbringer reicht Anfrage (`KK_ELB_ChargeItem`) mit Leistungsdaten (eKVNR, Abrechnungspositionsnummer, Leistungszeiten etc.)  zur Bestätigung ein</li><li>Optional ist die Angabe einer Callback-URL, für eine Benachrichtigung nach erfolgter Bestätigung/Ablehnung</li></ul> |
 | Antwort | `KK_ELB_ResponseParameters` (mit `KK_ELB_ResponseDocumentBundle`) | Kostenträger liefert bestätigte/abgelehnte ChargeItems als (signiertes) Document-Bundle |
 | Polling | `KK_ELB_PollingRequest` | Abruf von Leistungsbestätigungen-/ablehnungen (Polling-Verfahren)|
 | Empfangsquittung | `KK_ELB_ConfirmationOfResponse` | Bestätigt den erfolgreichen Abruf der Antwort beim Leistungserbringer |
@@ -84,8 +84,9 @@ eLB/
 │   ├── EmpfangsquittungRequest/
 │   ├── Teilnehmerabfrage/
 │   └── Abrechnung/
-├── validate.bat                        # Validierung unter Windows
-├── validate.sh                         # Validierung unter Linux/macOS
+├── scripts/                            # Validator-Skripte
+│   ├── validate.bat                    # Validierung unter Windows
+│   └── validate.sh                     # Validierung unter Linux/macOS
 └── package.json                        # FHIR-IG-Paketmetadaten
 ```
 
@@ -98,17 +99,17 @@ Voraussetzungen: Java (JRE 11+) und `curl`. Beim ersten Aufruf wird der [HAPI FH
 **Windows:**
 
 ```cmd
-validate.bat
+scripts\validate.bat
 ```
 
 **Linux / macOS:**
 
 ```bash
-chmod +x validate.sh
-./validate.sh
+chmod +x scripts/validate.sh
+./scripts/validate.sh
 ```
 
-Beide Skripte führen den Validator über das gesamte Verzeichnis `Beispiele/` aus und binden zur Validierung das aktuelle Verzeichnis als IG sowie das deutsche Basisprofil-Paket `de.basisprofil.r4` ein. Zusätzliche Validator-Argumente lassen sich anhängen, z. B. `./validate.sh -output validation-output.json`.
+Beide Skripte führen den Validator über das gesamte Verzeichnis `Beispiele/` aus und binden zur Validierung das Repository-Wurzelverzeichnis als IG sowie das deutsche Basisprofil-Paket `de.basisprofil.r4` ein. Zusätzliche Validator-Argumente lassen sich anhängen, z. B. `./scripts/validate.sh -output validation-output.json`.
 
 ## Versionen & Abhängigkeiten
 
@@ -127,7 +128,7 @@ Issues und Pull Requests sind willkommen. Inhaltliche Rückfragen zum Verfahren 
 Beim Einreichen von Profil-Änderungen bitte beachten:
 
 - Profile, CodeSystems, ValueSets und NamingSystems werden als XML eingecheckt; die canonical URL `https://e-lb.de/fhir/StructureDefinition/…` muss zum Dateinamen passen.
-- Änderungen mit lokalem Validator (`validate.sh` / `validate.bat`) testen, bevor ein PR eröffnet wird.
+- Änderungen mit lokalem Validator (`scripts/validate.sh` / `scripts/validate.bat`) testen, bevor ein PR eröffnet wird.
 - Bei jeder Profil-Änderung das `date`-Feld und ggf. die `version` in `package.json` aktualisieren.
 
 ## Lizenz
