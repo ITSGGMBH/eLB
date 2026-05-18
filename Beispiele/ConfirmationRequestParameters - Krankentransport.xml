@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ConfirmationRequestParameters"/>
+	</meta>
+	<parameter>
+		<name value="requestType"/>
+		<valueCoding>
+			<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_RequestType"/>
+			<code value="REQUEST_WITH_CALLBACK"/>
+		</valueCoding>
+	</parameter>
+	<parameter>
+		<name value="callbackUrl"/>
+		<valueUrl value="https://e-lb.de/fhir/callbackurl"/>
+	</parameter>
+	<parameter>
+		<name value="emailContactPoint"/>
+		<valueContactPoint>
+			<system value="email"/>
+			<value value="endpointmanager@example.org"/>
+		</valueContactPoint>
+	</parameter>
+	<parameter>
+		<name value="softwareIdentifier"/>
+		<valueString value="ktw.example.com"/>
+	</parameter>
+	<!--
+		Beispiel: Krankentransport (Hinfahrt) von der Wohnanschrift des Versicherten
+		zur Dialyse. Performer-Funktion mit SGS-Code 'E' (Leistungserbringer von
+		Krankentransporten); Start- und Zielort sind über die Extension
+		KK_ELB_EX_Krankentransport angegeben (durch Constraint 'Krankentransport'
+		in KK_ELB_ChargeItem als Pflicht definiert, sobald SGS='E' ist).
+	-->
+	<parameter>
+		<name value="chargeItem"/>
+		<resource>
+			<ChargeItem xmlns="http://hl7.org/fhir">
+				<meta>
+					<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+					<security>
+						<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+						<code value="1"/>
+					</security>
+				</meta>
+				<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
+					<valueIdentifier>
+						<system value="http://fhir.de/sid/arge-ik/iknr"/>
+						<value value="101575519"/>
+					</valueIdentifier>
+				</extension>
+				<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport">
+					<extension url="startort">
+						<valueAddress>
+							<type value="physical"/>
+							<line value="Beispielstraße 12"/>
+							<city value="Leipzig"/>
+							<postalCode value="04109"/>
+							<country value="DE"/>
+						</valueAddress>
+					</extension>
+					<extension url="zielort">
+						<valueAddress>
+							<type value="physical"/>
+							<line value="Liebigstraße 20"/>
+							<city value="Leipzig"/>
+							<postalCode value="04103"/>
+							<country value="DE"/>
+						</valueAddress>
+					</extension>
+				</extension>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="urn:uuid:aabb1111-2222-3333-4444-555566667777"/>
+				</identifier>
+				<status value="unknown"/>
+				<code>
+					<coding>
+						<system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
+						<code value="50101"/>
+					</coding>
+				</code>
+				<subject>
+					<identifier>
+						<system value="http://fhir.de/sid/gkv/kvid-10"/>
+						<value value="K121212345"/>
+					</identifier>
+				</subject>
+				<occurrencePeriod>
+					<start value="2026-05-13T07:30:00+02:00"/>
+					<end value="2026-05-13T08:15:00+02:00"/>
+				</occurrencePeriod>
+				<performer>
+					<function>
+						<coding>
+							<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
+							<code value="E"/>
+						</coding>
+					</function>
+					<actor>
+						<type value="Organization"/>
+						<identifier>
+							<system value="http://fhir.de/sid/arge-ik/iknr"/>
+							<value value="345678901"/>
+						</identifier>
+						<display value="Krankentransport Müller GmbH"/>
+					</actor>
+				</performer>
+			</ChargeItem>
+		</resource>
+	</parameter>
+</Parameters>

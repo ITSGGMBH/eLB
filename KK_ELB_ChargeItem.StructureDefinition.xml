@@ -4,7 +4,7 @@
   <version value="1.0.0" />
   <name value="KK_ELB_ChargeItem" />
   <status value="draft" />
-  <date value="2023-09-11T07:14:25.1972434+00:00" />
+  <date value="2026-05-13T10:00:00+00:00" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -19,6 +19,12 @@
         <severity value="error" />
         <human value="In performer:angestellteLeistungserbringerin ist keine LBNR angegeben, diese ist aber eine Pflichtangabe bei dem verwendeten SGS code." />
         <expression value="performer.where(actor.type='Organization').function.coding.where(code='C' or code='R').exists() implies (performer.all(actor.where(type='Practitioner').exists().not()) or performer.actor.where(type='Practitioner').identifier.where(system='http://fhir.de/sid/bfarm/lbnr').exists())" />
+      </constraint>
+      <constraint>
+        <key value="Krankentransport" />
+        <severity value="error" />
+        <human value="Bei einer Leistung eines Leistungserbringers von Krankentransporten (SGS-Code 'E') müssen Start- und Zielort über die Extension KK_ELB_EX_Krankentransport angegeben sein." />
+        <expression value="performer.function.coding.where(system='https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS' and code='E').exists() implies extension('https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport').exists()" />
       </constraint>
     </element>
     <element id="ChargeItem.id">
@@ -81,6 +87,20 @@
       <type>
         <code value="Extension" />
         <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor" />
+      </type>
+      <mustSupport value="true" />
+      <isModifier value="false" />
+    </element>
+    <element id="ChargeItem.extension:Krankentransport">
+      <path value="ChargeItem.extension" />
+      <sliceName value="Krankentransport" />
+      <short value="Start- und Zielort der Krankentransport-Leistung" />
+      <definition value="Adressen des Abhol- und Zielortes des Versicherten. Pflichtangabe bei SGS-Code 'E' (Leistungserbringer von Krankentransporten); siehe Constraint 'Krankentransport'." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport" />
       </type>
       <mustSupport value="true" />
       <isModifier value="false" />

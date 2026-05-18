@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseParameters"/>
+	</meta>
+	<parameter>
+		<name value="emailContactPoint"/>
+		<valueContactPoint>
+			<system value="email"/>
+			<value value="bestaetigungssystem@example.com"/>
+		</valueContactPoint>
+	</parameter>
+	<parameter>
+		<name value="softwareIdentifier"/>
+		<valueString value="bestaetigungssystem.example.com@1.0.9"/>
+	</parameter>
+	<!--
+		Beispiel-Antwort zum Krankentransport-Request: die ChargeItem-Ressource
+		wird mit dem gleichen Profil (und damit der Krankentransport-Extension)
+		im ResponseDocumentBundle zurückgespiegelt; status wird auf 'billable'
+		oder 'not-billable' gesetzt.
+	-->
+	<parameter>
+		<name value="responseBundle"/>
+		<resource>
+			<Bundle xmlns="http://hl7.org/fhir">
+				<meta>
+					<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseDocumentBundle"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="urn:uuid:bbcc2222-3333-4444-5555-666677778888"/>
+				</identifier>
+				<type value="document"/>
+				<timestamp value="2026-05-13T10:30:00Z"/>
+				<entry>
+					<fullUrl value="urn:uuid:ccdd3333-4444-5555-6666-777788889999"/>
+					<resource>
+						<Composition>
+							<meta>
+								<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ResponseComposition"/>
+							</meta>
+							<status value="final"/>
+							<type>
+								<coding>
+									<system value="http://dvmd.de/fhir/CodeSystem/kdl"/>
+									<code value="AM190107"/>
+								</coding>
+							</type>
+							<date value="2026-05-13T10:00:00Z"/>
+							<author>
+								<identifier>
+									<system value="http://fhir.de/sid/arge-ik/iknr"/>
+									<value value="123456780"/>
+								</identifier>
+							</author>
+							<title value="Elektronische Leistungsbestätigung"/>
+							<section>
+								<entry>
+									<!-- Referenz auf das ChargeItem -->
+									<reference value="urn:uuid:ddee4444-5555-6666-7777-888899990000"/>
+								</entry>
+							</section>
+						</Composition>
+					</resource>
+				</entry>
+				<entry>
+					<fullUrl value="urn:uuid:ddee4444-5555-6666-7777-888899990000"/>
+					<resource>
+						<ChargeItem xmlns="http://hl7.org/fhir">
+							<meta>
+								<profile value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_ChargeItem"/>
+								<security>
+									<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_CS_Nutzungsbedingung_Version"/>
+									<code value="1"/>
+								</security>
+							</meta>
+							<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_Payor">
+								<valueIdentifier>
+									<system value="http://fhir.de/sid/arge-ik/iknr"/>
+									<value value="101575519"/>
+								</valueIdentifier>
+							</extension>
+							<extension url="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport">
+								<extension url="startort">
+									<valueAddress>
+										<type value="physical"/>
+										<line value="Beispielstraße 12"/>
+										<city value="Leipzig"/>
+										<postalCode value="04109"/>
+										<country value="DE"/>
+									</valueAddress>
+								</extension>
+								<extension url="zielort">
+									<valueAddress>
+										<type value="physical"/>
+										<line value="Liebigstraße 20, Dialysezentrum Universitätsklinikum Leipzig"/>
+										<city value="Leipzig"/>
+										<postalCode value="04103"/>
+										<country value="DE"/>
+									</valueAddress>
+								</extension>
+							</extension>
+							<identifier>
+								<system value="urn:ietf:rfc:3986"/>
+								<value value="urn:uuid:aabb1111-2222-3333-4444-555566667777"/>
+							</identifier>
+							<status value="billable"/>
+							<code>
+								<coding>
+									<system value="https://e-lb.de/fhir/sid/KK_ELB_ChargeItemCode"/>
+									<code value="50101"/>
+								</coding>
+							</code>
+							<subject>
+								<identifier>
+									<system value="http://fhir.de/sid/gkv/kvid-10"/>
+									<value value="K121212345"/>
+								</identifier>
+							</subject>
+							<occurrencePeriod>
+								<start value="2026-05-13T07:30:00+02:00"/>
+								<end value="2026-05-13T08:15:00+02:00"/>
+							</occurrencePeriod>
+							<performer>
+								<function>
+									<coding>
+										<system value="https://e-lb.de/fhir/CodeSystem/KK_ELB_SGS"/>
+										<code value="E"/>
+									</coding>
+								</function>
+								<actor>
+									<type value="Organization"/>
+									<identifier>
+										<system value="http://fhir.de/sid/arge-ik/iknr"/>
+										<value value="345678901"/>
+									</identifier>
+									<display value="Krankentransport Müller GmbH"/>
+								</actor>
+							</performer>
+						</ChargeItem>
+					</resource>
+				</entry>
+				<signature>
+					<type>
+						<system value="urn:iso-astm:E1762-95:2013"/>
+						<code value="1.2.840.10065.1.12.1.5"/>
+					</type>
+					<when value="2026-05-13T10:30:00+02:00"/>
+					<who>
+						<identifier>
+							<system value="http://fhir.de/sid/arge-ik/iknr"/>
+							<value value="123456780"/>
+						</identifier>
+					</who>
+					<sigFormat value="application/signature+xml"/>
+					<data value="TG9yZW0gaXBzdW0gZG9sciBzaXI="/>
+				</signature>
+			</Bundle>
+		</resource>
+	</parameter>
+</Parameters>

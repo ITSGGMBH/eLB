@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport" />
+  <version value="1.0.0" />
+  <name value="KK_ELB_EX_Krankentransport" />
+  <status value="draft" />
+  <date value="2026-05-13T10:00:00+00:00" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="ChargeItem" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Start- und Zielort einer Krankentransport-Leistung" />
+      <definition value="Adresse des Abhol- und des Zielortes für eine Krankentransport-Leistung. Pflichtangabe bei SGS-Code 'E' (Leistungserbringer von Krankentransporten)." />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <min value="2" />
+    </element>
+    <element id="Extension.extension:startort">
+      <path value="Extension.extension" />
+      <sliceName value="startort" />
+      <short value="Abholort" />
+      <definition value="Adresse des Abholortes des Versicherten zu Beginn des Transports." />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:startort.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="startort" />
+    </element>
+    <element id="Extension.extension:startort.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Address" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:startort.value[x].type">
+      <path value="Extension.extension.value[x].type" />
+      <min value="1" />
+      <fixedCode value="physical" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:startort.value[x].line">
+      <path value="Extension.extension.value[x].line" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:startort.value[x].country">
+      <path value="Extension.extension.value[x].country" />
+      <short value="Staat als ISO-3166-1-Alpha-2-Code (z. B. DE, AT, CH)" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/iso3166-1-2" />
+      </binding>
+    </element>
+    <element id="Extension.extension:zielort">
+      <path value="Extension.extension" />
+      <sliceName value="zielort" />
+      <short value="Zielort" />
+      <definition value="Adresse des Zielortes des Versicherten am Ende des Transports." />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:zielort.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="zielort" />
+    </element>
+    <element id="Extension.extension:zielort.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Address" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:zielort.value[x].type">
+      <path value="Extension.extension.value[x].type" />
+      <min value="1" />
+      <fixedCode value="physical" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.extension:zielort.value[x].line">
+      <path value="Extension.extension.value[x].line" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:zielort.value[x].country">
+      <path value="Extension.extension.value[x].country" />
+      <short value="Staat als ISO-3166-1-Alpha-2-Code (z. B. DE, AT, CH)" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/iso3166-1-2" />
+      </binding>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="https://e-lb.de/fhir/StructureDefinition/KK_ELB_EX_Krankentransport" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
