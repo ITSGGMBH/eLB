@@ -4,7 +4,7 @@
   "description": "FHIR Profile für das Verfahren der elektronischen Versichertenbestätigung",
   "dependencies": {
     "hl7.fhir.r4.core": "4.0.1",
-    "de.basisprofil.r4": "1.4.0"
+    "de.basisprofil.r4": "1.5.4"
   },
   "fhirVersions": [
     "4.0.1"

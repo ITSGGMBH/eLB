@@ -34,7 +34,7 @@
       <max value="1" />
       <type>
         <code value="Coding" />
-        <profile value="http://fhir.de/StructureDefinition/CodingICD10GM|1.4.0" />
+        <profile value="http://fhir.de/StructureDefinition/CodingICD10GM|1.5.4" />
       </type>
     </element>
     <element id="Condition.code.coding:ICD-10-GM.system">
@@ -55,7 +55,7 @@
       <max value="0" />
       <type>
         <code value="Coding" />
-        <profile value="http://fhir.de/StructureDefinition/CodingAlphaID|1.4.0" />
+        <profile value="http://fhir.de/StructureDefinition/CodingAlphaID|1.5.4" />
       </type>
     </element>
     <element id="Condition.code.coding:alpha-id.system">
